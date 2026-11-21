@@ -615,22 +615,25 @@ let reviews = [];
 let userVotes = {};
 
 const DEFAULT_BRANDS = [
-    { id: 1, name: "Nike", logo: "NK", category: "Sports", description: "Athletic footwear and performance apparel built for running and training.", url: "https://www.nike.com", banner: "images/nike%20gfm.png", visits: 0, listed_date: "2023-04" },
-    { id: 2, name: "Adidas", logo: "AD", category: "Sports", description: "Global sportswear, footwear, and performance athletic gear.", url: "https://www.adidas.com", banner: "images/adidas%20gfm.png", visits: 0, listed_date: "2023-05" },
-    { id: 3, name: "Zara", logo: "ZR", category: "Fashion", description: "Fast-moving contemporary apparel, footwear, and accessories.", url: "https://www.zara.com", banner: "images/apc%20gfm.png", visits: 0, listed_date: "2024-01" },
-    { id: 4, name: "Nintendo", logo: "NT", category: "Games", description: "Iconic video games, consoles, and family-friendly entertainment.", url: "https://www.nintendo.com", banner: "images/nintendo%20gfm.png", visits: 0, listed_date: "2023-02" },
-    { id: 5, name: "IKEA", logo: "IK", category: "Everyday Life", description: "Ready-to-assemble furniture, home decor, and practical living solutions.", url: "https://www.ikea.com", banner: "images/muji%20gfm.png", visits: 0, listed_date: "2023-06" },
-    { id: 6, name: "Penguin Books", logo: "PB", category: "Books", description: "Publishing house known for classic literature, fiction, and non-fiction.", url: "https://www.penguin.com", banner: "images/penguin%20books%20gfm.png", visits: 0, listed_date: "2024-03" },
-    { id: 7, name: "Apple", logo: "AP", category: "Technology", description: "Consumer hardware, smartphones, operating systems, and ecosystem services.", url: "https://www.apple.com", banner: "images/cos%20gfm.png", visits: 0, listed_date: "2023-01" },
-    { id: 8, name: "Patagonia", logo: "PT", category: "Everyday Life", description: "Outdoor apparel focused on durability, repairs, and environmental activism.", url: "https://www.patagonia.com", banner: "images/framework%20gfm.png", visits: 0, listed_date: "2024-09" },
-    { id: 9, name: "Steam", logo: "ST", category: "Games", description: "Digital PC game storefront, cloud saves, and community platform.", url: "https://store.steampowered.com", banner: "images/arc%20teryx%20gfm.png", visits: 0, listed_date: "2023-08" },
-    { id: 10, name: "Sony", logo: "SN", category: "Technology", description: "Consumer electronics, audio, imaging sensors, and PlayStation entertainment.", url: "https://www.sony.com", banner: "images/aesop%20gfm.png", visits: 0, listed_date: "2024-05" }
+    { id: 1, name: "Nike", logo: "NK", category: "Sports", description: "Athletic footwear and performance apparel built for running and training.", url: "https://www.nike.com", banner: "images/nike-gfm.png", visits: 0, listed_date: "2023-04" },
+    { id: 2, name: "Adidas", logo: "AD", category: "Sports", description: "Global sportswear, footwear, and performance athletic gear.", url: "https://www.adidas.com", banner: "images/adidas-gfm.png", visits: 0, listed_date: "2023-05" },
+    { id: 3, name: "Zara", logo: "ZR", category: "Fashion", description: "Fast-moving contemporary apparel, footwear, and accessories.", url: "https://www.zara.com", banner: "images/apc-gfm.png", visits: 0, listed_date: "2024-01" },
+    { id: 4, name: "Nintendo", logo: "NT", category: "Games", description: "Iconic video games, consoles, and family-friendly entertainment.", url: "https://www.nintendo.com", banner: "images/nintendo-gfm.png", visits: 0, listed_date: "2023-02" },
+    { id: 5, name: "IKEA", logo: "IK", category: "Everyday Life", description: "Ready-to-assemble furniture, home decor, and practical living solutions.", url: "https://www.ikea.com", banner: "images/muji-gfm.png", visits: 0, listed_date: "2023-06" },
+    { id: 6, name: "Penguin Books", logo: "PB", category: "Books", description: "Publishing house known for classic literature, fiction, and non-fiction.", url: "https://www.penguin.com", banner: "images/penguin-books-gfm.png", visits: 0, listed_date: "2024-03" },
+    { id: 7, name: "Apple", logo: "AP", category: "Technology", description: "Consumer hardware, smartphones, operating systems, and ecosystem services.", url: "https://www.apple.com", banner: "images/cos-gfm.png", visits: 0, listed_date: "2023-01" },
+    { id: 8, name: "Patagonia", logo: "PT", category: "Everyday Life", description: "Outdoor apparel focused on durability, repairs, and environmental activism.", url: "https://www.patagonia.com", banner: "images/framework-gfm.png", visits: 0, listed_date: "2024-09" },
+    { id: 9, name: "Steam", logo: "ST", category: "Games", description: "Digital PC game storefront, cloud saves, and community platform.", url: "https://store.steampowered.com", banner: "images/arc-teryx-gfm.png", visits: 0, listed_date: "2023-08" },
+    { id: 10, name: "Sony", logo: "SN", category: "Technology", description: "Consumer electronics, audio, imaging sensors, and PlayStation entertainment.", url: "https://www.sony.com", banner: "images/aesop-gfm.png", visits: 0, listed_date: "2024-05" }
 ];
 
 function getBannerSrc(brand) {
     const defaultMatch = DEFAULT_BRANDS.find(d => d.name === brand.name || d.id === brand.id);
     if (!brand.banner || brand.banner.includes("wikimedia.org")) {
         return defaultMatch?.banner || "";
+    }
+    if (brand.banner.startsWith("images/") && brand.banner.includes(" ")) {
+        return encodeURI(brand.banner.replace(/\s+/g, "-"));
     }
     return brand.banner.includes(" ") ? encodeURI(brand.banner) : brand.banner;
 }
