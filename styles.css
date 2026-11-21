@@ -98,29 +98,43 @@ html[dir="rtl"] .category-item {
     min-width: 0;
 }
 
-.cat-icon {
-    width: 28px;
-    height: 28px;
+/* Icônes modernes de la barre latérale */
+aside .cat-icon {
+    width: 30px;
+    height: 30px;
     border-radius: 9px;
     background: #f1f5f9;
-    color: #475569;
+    color: #334155;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 15px;
-    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.05);
-    transition: all 0.2s ease;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-.cat-icon svg {
+aside .cat-icon svg {
     width: 15px;
     height: 15px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 2.2;
+    stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+aside .category-item:hover .cat-icon {
+    background: #e2e8f0;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: scale(1.05);
+}
+
+aside .category-item.active .cat-icon {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: none;
 }
 
 .category-item:hover {
@@ -135,22 +149,11 @@ html[dir="rtl"] .category-item:hover {
     transform: translateX(-2px);
 }
 
-.category-item:hover .cat-icon {
-    background: #e2e8f0;
-    color: #0f172a;
-}
-
 .category-item.active {
     background: #0f172a;
     color: #ffffff;
     font-weight: 600;
     box-shadow: 0 10px 22px rgba(15, 23, 42, 0.2);
-}
-
-.category-item.active .cat-icon {
-    background: rgba(255, 255, 255, 0.18);
-    color: #ffffff;
-    box-shadow: none;
 }
 
 .cat-count {
