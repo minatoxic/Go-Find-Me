@@ -1,7 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const SUPABASE_URL = 'https://ceblbpnwewsyrhehxjyn.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_01WafxVNRdYyTevNhoST9hA_APRkjYM9';
+const SUPABASE_ANON_KEY = 'sb_publishable_0lWAFxVWRdYyTmvMoST9bA_8FNkj3M9';
 const DEFAULT_REDIRECT_URL = 'https://minatoxic.github.io/Go-Find-Me/';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
