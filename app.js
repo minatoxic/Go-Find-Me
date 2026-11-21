@@ -627,6 +627,19 @@ const DEFAULT_BRANDS = [
     { id: 10, name: "Sony", logo: "SN", category: "Technology", description: "Consumer electronics, audio, imaging sensors, and PlayStation entertainment.", url: "https://www.sony.com", banner: "images/aesop-gfm.png", visits: 0, listed_date: "2024-05" }
 ];
 
+const BRAND_LOGO_FILES = {
+    "Nike": "logos/nike_logo_gfm.png",
+    "Adidas": "logos/adidas_logo_gfm.png",
+    "Arc'teryx": "logos/arc_teryx_logo_gfm.png",
+    "COS": "logos/cos_logo_gfm.png",
+    "A.P.C.": "logos/apc_logo_gfm.png",
+    "Nintendo": "logos/nintendo_logo_gfm.png",
+    "Muji": "logos/muji_logo_gfm.png",
+    "Aesop": "logos/aesop_logo_gfm.png",
+    "Penguin Books": "logos/penguin_books_logo_gfm.png",
+    "Framework": "logos/framework_logo_gfm.png"
+};
+
 function getBannerSrc(brand) {
     const defaultMatch = DEFAULT_BRANDS.find(d => d.name === brand.name || d.id === brand.id);
     if (!brand.banner || brand.banner.includes("wikimedia.org")) {
@@ -636,6 +649,47 @@ function getBannerSrc(brand) {
         return encodeURI(brand.banner.replace(/\s+/g, "-"));
     }
     return brand.banner.includes(" ") ? encodeURI(brand.banner) : brand.banner;
+}
+
+function getLogoSrc(brand) {
+    if (brand?.logo_url && String(brand.logo_url).trim() !== "") {
+        return String(brand.logo_url).trim();
+    }
+    if (brand?.logo && typeof brand.logo === "string" && (brand.logo.includes("/") || brand.logo.includes("."))) {
+        return brand.logo.trim();
+    }
+    return BRAND_LOGO_FILES[brand?.name] || "";
+}
+
+function getLogoFallbackText(brand) {
+    if (
+        brand?.logo &&
+        typeof brand.logo === "string" &&
+        !brand.logo.includes("/") &&
+        !brand.logo.includes(".") &&
+        brand.logo.trim() !== "" &&
+        brand.logo !== "undefined"
+    ) {
+        return brand.logo.trim();
+    }
+    const cleanName = (brand?.name || "BR").replace(/[^a-zA-Z0-9]/g, "");
+    return cleanName.slice(0, 2).toUpperCase() || "BR";
+}
+
+function renderBrandLogo(brand, className = "logo") {
+    const src = getLogoSrc(brand);
+    const fallbackText = getLogoFallbackText(brand);
+
+    if (!src) {
+        return `<div class="${className}">${fallbackText}</div>`;
+    }
+
+    return `
+        <div class="${className} has-logo-img">
+            <img src="${src}" alt="${brand.name} logo" loading="lazy"
+                onerror="this.parentElement.classList.remove('has-logo-img'); this.parentElement.textContent='${fallbackText}';">
+        </div>
+    `;
 }
 
 function showToast(message) {
@@ -1412,7 +1466,7 @@ function renderBrandDetail(brandId) {
         </div>
 
         <div class="brand-header-info">
-            <div class="brand-detail-logo">${brand.logo}</div>
+            ${renderBrandLogo(brand, "brand-detail-logo")}
             <div class="brand-detail-title-area">
                 <h2>${brand.name}</h2>
                 <span class="cat-tag">${t.catNames[brand.category] || brand.category} · ${t.visits}: ${brand.visits || 0} · ${t.listed}: ${brand.listed_date || ""}</span>
@@ -1665,7 +1719,7 @@ function renderCatalog() {
                 <div>
                     <div class="card-header">
                         <div class="brand-identity">
-                            <div class="logo">${brand.logo}</div>
+                            ${renderBrandLogo(brand, "logo")}
                             <div>
                                 <div class="brand-name">${brand.name}</div>
                                 <div class="brand-category">${t.catNames[brand.category] || brand.category}</div>
