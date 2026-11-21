@@ -1,499 +1,1167 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const SUPABASE_URL = 'https://ceblbpnwewsyrhehxjyn.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_0lWAFxVWRdYyTmvMoST9bA_8FNkj3M9';
+const SUPABASE_ANON_KEY = 'sb_publishable_01WafxVNRdYyTevNhoST9hA_APRkjYM9';
 const DEFAULT_REDIRECT_URL = 'https://minatoxic.github.io/Go-Find-Me/';
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const FLAGS = {
-    ma: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#c1272d"/><polygon points="9,3.3 9.7,5.5 12,5.5 10.1,6.8 10.8,9 9,7.6 7.2,9 7.9,6.8 6,5.5 8.3,5.5" fill="none" stroke="#006233" stroke-width="0.7"/></svg>`,
+    ma: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#c1272d"/><polygon points="9,3.3 9.7,5.5 12,5.5 10.1,6.8 10.8,9 9,7.6 7.2,9 7.9,6.8 6,5.5 8.3,5.5" fill="none" stroke="#006233" stroke-width="0.9"/></svg>`,
     fr: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="6" height="12" x="0" fill="#0055a4"/><rect width="6" height="12" x="6" fill="#fff"/><rect width="6" height="12" x="12" fill="#ef4135"/></svg>`,
     be: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="6" height="12" x="0" fill="#000"/><rect width="6" height="12" x="6" fill="#fae042"/><rect width="6" height="12" x="12" fill="#ed2939"/></svg>`,
-    ca: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="4.5" height="12" x="0" fill="#ff0000"/><rect width="9" height="12" x="4.5" fill="#fff"/><rect width="4.5" height="12" x="13.5" fill="#ff0000"/><polygon points="9,3.2 9.8,5.2 11.5,4.8 10.5,6.4 11.8,7.3 9.6,7.5 9,9.2 8.4,7.5 6.2,7.3 7.5,6.4 6.5,4.8 8.2,5.2" fill="#ff0000"/></svg>`,
-    cd: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#007fff"/><path d="M0 9.6L15.6 0H18v2.4L2.4 12H0z" fill="#f7d618"/><path d="M0 10.3L16.7 0H18v1.3L1.3 12H0z" fill="#ce1021"/><polygon points="3.5,1.5 4.1,3.2 5.9,3.2 4.4,4.2 5,5.9 3.5,4.9 2,5.9 2.6,4.2 1.1,3.2 2.9,3.2" fill="#f7d618"/></svg>`,
-    us: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#b22234"/><path d="M0 1.4h18M0 3.7h18M0 6h18M0 8.3h18M0 10.6h18" stroke="#fff" stroke-width="1"/><rect width="7.5" height="6.5" fill="#3c3b6e"/></svg>`,
-    gb: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0 0l18 12M18 0L0 12" stroke="#fff" stroke-width="2.2"/><path d="M0 0l18 12M18 0L0 12" stroke="#c8102e" stroke-width="1.2"/><path d="M9 0v12M0 6h18" stroke="#fff" stroke-width="3.2"/><path d="M9 0v12M0 6h18" stroke="#c8102e" stroke-width="1.8"/></svg>`,
-    au: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#00008b"/><rect width="9" height="6" fill="#00008b"/><path d="M0 0l9 6M9 0L0 6" stroke="#fff" stroke-width="1.3"/><path d="M0 0l9 6M9 0L0 6" stroke="#c8102e" stroke-width="0.7"/><path d="M4.5 0v6M0 3h9" stroke="#fff" stroke-width="2"/><path d="M4.5 0v6M0 3h9" stroke="#c8102e" stroke-width="1.1"/></svg>`,
-    eg: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="4" y="0" fill="#ce1126"/><rect width="18" height="4" y="4" fill="#fff"/><rect width="18" height="4" y="8" fill="#000"/><circle cx="9" cy="6" r="1.4" fill="#c09300"/></svg>`,
-    dz: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="9" height="12" x="0" fill="#006233"/><rect width="9" height="12" x="9" fill="#fff"/><circle cx="9.8" cy="6" r="2.7" fill="#d21034"/><circle cx="10.6" cy="6" r="2.1" fill="#fff"/><polygon points="9.2,6 11.4,5.3 10.1,7.1 10.1,4.9 11.4,6.7" fill="#d21034"/></svg>`,
-    tn: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#e70013"/><circle cx="9" cy="6" r="3.4" fill="#fff"/><circle cx="9.6" cy="6" r="2.5" fill="#e70013"/><polygon points="9.8,4.6 10.2,5.6 11.2,5.6 10.4,6.2 10.7,7.2 9.8,6.6 8.9,7.2 9.2,6.2 8.4,5.6 9.4,5.6" fill="#fff"/></svg>`,
+    ca: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="4.5" height="12" x="0" fill="#ff0000"/><rect width="9" height="12" x="4.5" fill="#fff"/><rect width="4.5" height="12" x="13.5" fill="#ff0000"/><polygon points="9,2.6 9.8,4.6 11.4,4.3 10.5,5.8 12,6.4 9.7,7.1 9.5,9.2 8.5,9.2 8.3,7.1 6,6.4 7.5,5.8 6.6,4.3 8.2,4.6" fill="#ff0000"/></svg>`,
+    ch: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#d52b1e"/><rect x="7.8" y="2.5" width="2.4" height="7" fill="#fff"/><rect x="5.5" y="4.8" width="7" height="2.4" fill="#fff"/></svg>`,
+    us: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#b22234"/><path d="M0 1.8h18M0 3.7h18M0 5.5h18M0 7.4h18M0 9.2h18M0 11.1h18" stroke="#fff" stroke-width="0.95"/><rect width="7.5" height="6.5" fill="#3c3b6e"/></svg>`,
+    gb: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#012169"/><path d="M0 0l18 12M18 0L0 12" stroke="#fff" stroke-width="2.2"/><path d="M0 0l18 12M18 0L0 12" stroke="#c8102e" stroke-width="1.2"/><path d="M9 0v12M0 6h18" stroke="#fff" stroke-width="3.6"/><path d="M9 0v12M0 6h18" stroke="#c8102e" stroke-width="2"/></svg>`,
+    au: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#00008b"/><rect width="9" height="6" fill="#00008b"/><path d="M0 0l9 6M9 0L0 6" stroke="#fff" stroke-width="1.3"/><path d="M4.5 0v6M0 3h9" stroke="#fff" stroke-width="2.2"/><path d="M4.5 0v6M0 3h9" stroke="#ff0000" stroke-width="1.2"/><circle cx="13.5" cy="3" r="0.9" fill="#fff"/><circle cx="13.5" cy="9" r="0.9" fill="#fff"/><circle cx="11.2" cy="6.2" r="0.7" fill="#fff"/><circle cx="15.6" cy="5.5" r="0.7" fill="#fff"/><circle cx="13.5" cy="6.2" r="0.5" fill="#fff"/></svg>`,
+    dz: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="9" height="12" x="0" fill="#006233"/><rect width="9" height="12" x="9" fill="#fff"/><circle cx="9.8" cy="6" r="2.7" fill="#d21034"/><circle cx="10.6" cy="6" r="2.1" fill="#fff"/><polygon points="9.8,4.6 10.2,5.6 11.2,5.6 10.4,6.2 10.7,7.2 9.8,6.6 8.9,7.2 9.2,6.2 8.4,5.6 9.4,5.6" fill="#d21034"/></svg>`,
+    tn: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#e70013"/><circle cx="9" cy="6" r="3.4" fill="#fff"/><circle cx="9.5" cy="6" r="2.5" fill="#e70013"/><circle cx="10.2" cy="6" r="2" fill="#fff"/><polygon points="9.8,4.8 10.1,5.7 11,5.7 10.3,6.2 10.6,7.1 9.8,6.6 9,7.1 9.3,6.2 8.6,5.7 9.5,5.7" fill="#e70013"/></svg>`,
     sa: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#006c35"/><path d="M4 5.5h10M5.5 8h7" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/></svg>`,
     es: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="3" y="0" fill="#aa151b"/><rect width="18" height="6" y="3" fill="#f1bf00"/><rect width="18" height="3" y="9" fill="#aa151b"/></svg>`,
-    mx: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="6" height="12" x="0" fill="#006847"/><rect width="6" height="12" x="6" fill="#fff"/><rect width="6" height="12" x="12" fill="#ce1126"/><circle cx="9" cy="6" r="1.5" fill="#8b5a2b"/></svg>`,
+    mx: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="6" height="12" x="0" fill="#006847"/><rect width="6" height="12" x="6" fill="#fff"/><rect width="6" height="12" x="12" fill="#ce1126"/><circle cx="9" cy="6" r="1.4" fill="#664c28"/></svg>`,
     co: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="6" y="0" fill="#fcd116"/><rect width="18" height="3" y="6" fill="#003893"/><rect width="18" height="3" y="9" fill="#ce1126"/></svg>`,
-    ar: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="4" y="0" fill="#74acdf"/><rect width="18" height="4" y="4" fill="#fff"/><rect width="18" height="4" y="8" fill="#74acdf"/><circle cx="9" cy="6" r="1.4" fill="#f6b40e"/></svg>`,
+    ar: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="4" y="0" fill="#74acdf"/><rect width="18" height="4" y="4" fill="#fff"/><rect width="18" height="4" y="8" fill="#74acdf"/><circle cx="9" cy="6" r="1.3" fill="#f6b40e"/></svg>`,
     de: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="4" y="0" fill="#000"/><rect width="18" height="4" y="4" fill="#dd0000"/><rect width="18" height="4" y="8" fill="#ffce00"/></svg>`,
     at: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="4" y="0" fill="#ed2939"/><rect width="18" height="4" y="4" fill="#fff"/><rect width="18" height="4" y="8" fill="#ed2939"/></svg>`,
     it: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="6" height="12" x="0" fill="#009246"/><rect width="6" height="12" x="6" fill="#fff"/><rect width="6" height="12" x="12" fill="#ce2b37"/></svg>`,
-    ch: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#d52b1e"/><rect x="7.8" y="2.5" width="2.4" height="7" fill="#fff"/><rect x="5.5" y="4.8" width="7" height="2.4" fill="#fff"/></svg>`,
     br: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="18" height="12" fill="#009b3a"/><polygon points="9,1.8 15.8,6 9,10.2 2.2,6" fill="#ffdf00"/><circle cx="9" cy="6" r="2.3" fill="#002776"/></svg>`,
-    pt: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="7" height="12" x="0" fill="#006600"/><rect width="11" height="12" x="7" fill="#ff0000"/><circle cx="7" cy="6" r="2.2" fill="#ffcc00" stroke="#000" stroke-width="0.4"/></svg>`
+    pt: `<svg class="flag-icon" viewBox="0 0 18 12"><rect width="7" height="12" x="0" fill="#006600"/><rect width="11" height="12" x="7" fill="#ff0000"/><circle cx="7" cy="6" r="2.2" fill="#ffdf00" stroke="#000" stroke-width="0.4"/></svg>`
 };
 
 const COUNTRY_LANGUAGES = [
-    { country: "Morocco", flag: "ma", lang: "ar", langLabel: "العربية" },
-    { country: "France", flag: "fr", lang: "fr", langLabel: "Français" },
-    { country: "Belgium", flag: "be", lang: "fr", langLabel: "Français" },
-    { country: "Canada", flag: "ca", lang: "fr", langLabel: "Français" },
-    { country: "DR Congo", flag: "cd", lang: "fr", langLabel: "Français" },
-    { country: "United States", flag: "us", lang: "en", langLabel: "English" },
-    { country: "United Kingdom", flag: "gb", lang: "en", langLabel: "English" },
-    { country: "Australia", flag: "au", lang: "en", langLabel: "English" },
-    { country: "Egypt", flag: "eg", lang: "ar", langLabel: "العربية" },
-    { country: "Algeria", flag: "dz", lang: "ar", langLabel: "العربية" },
-    { country: "Tunisia", flag: "tn", lang: "ar", langLabel: "العربية" },
-    { country: "Saudi Arabia", flag: "sa", lang: "ar", langLabel: "العربية" },
-    { country: "Spain", flag: "es", lang: "es", langLabel: "Español" },
-    { country: "Mexico", flag: "mx", lang: "es", langLabel: "Español" },
-    { country: "Colombia", flag: "co", lang: "es", langLabel: "Español" },
-    { country: "Argentina", flag: "ar", lang: "es", langLabel: "Español" },
-    { country: "Germany", flag: "de", lang: "de", langLabel: "Deutsch" },
-    { country: "Austria", flag: "at", lang: "de", langLabel: "Deutsch" },
-    { country: "Italy", flag: "it", lang: "it", langLabel: "Italiano" },
-    { country: "Switzerland", flag: "ch", lang: "it", langLabel: "Italiano" },
-    { country: "Brazil", flag: "br", lang: "pt", langLabel: "Português" },
-    { country: "Portugal", flag: "pt", lang: "pt", langLabel: "Português" }
+    { code: "ma", name: "Morocco", lang: "ar" },
+    { code: "fr", name: "France", lang: "fr" },
+    { code: "be", name: "Belgium", lang: "fr" },
+    { code: "ca", name: "Canada", lang: "en" },
+    { code: "ch", name: "Switzerland", lang: "fr" },
+    { code: "us", name: "United States", lang: "en" },
+    { code: "gb", name: "United Kingdom", lang: "en" },
+    { code: "au", name: "Australia", lang: "en" },
+    { code: "dz", name: "Algeria", lang: "ar" },
+    { code: "tn", name: "Tunisia", lang: "ar" },
+    { code: "sa", name: "Saudi Arabia", lang: "ar" },
+    { code: "es", name: "Spain", lang: "es" },
+    { code: "mx", name: "Mexico", lang: "es" },
+    { code: "co", name: "Colombia", lang: "es" },
+    { code: "ar", name: "Argentina", lang: "es" },
+    { code: "de", name: "Germany", lang: "de" },
+    { code: "at", name: "Austria", lang: "de" },
+    { code: "it", name: "Italy", lang: "it" },
+    { code: "br", name: "Brazil", lang: "pt" },
+    { code: "pt", name: "Portugal", lang: "pt" }
 ];
 
 const UI_TEXT = {
-    en: { categories: "Categories", sortBy: "Sort by:", search: "Search brands...", signIn: "Sign In", brandOne: "1 brand", brandMany: "brands" },
-    fr: { categories: "Catégories", sortBy: "Trier par :", search: "Rechercher une marque...", signIn: "Connexion", brandOne: "1 marque", brandMany: "marques" },
-    ar: { categories: "الفئات", sortBy: "ترتيب حسب:", search: "ابحث عن علامة تجارية...", signIn: "تسجيل الدخول", brandOne: "علامة واحدة", brandMany: "علامات" },
-    es: { categories: "Categorías", sortBy: "Ordenar por:", search: "Buscar marcas...", signIn: "Iniciar sesión", brandOne: "1 marca", brandMany: "marcas" },
-    de: { categories: "Kategorien", sortBy: "Sortieren:", search: "Marken suchen...", signIn: "Anmelden", brandOne: "1 Marke", brandMany: "Marken" },
-    it: { categories: "Categorie", sortBy: "Ordina per:", search: "Cerca brand...", signIn: "Accedi", brandOne: "1 brand", brandMany: "brand" },
-    pt: { categories: "Categorias", sortBy: "Ordenar por:", search: "Buscar marcas...", signIn: "Entrar", brandOne: "1 marca", brandMany: "marcas" }
+    en: {
+        dir: "ltr",
+        categoriesTitle: "Categories",
+        sortLabel: "Sort by:",
+        searchPlaceholder: "Search brands...",
+        signIn: "Sign In",
+        myAccount: "My Account",
+        profileMenu: "Profile Menu",
+        backToCatalog: "← Back to catalog",
+        createAccount: "Create an Account",
+        authSubtitleSignup: "Join Go Find Me to save favorite brands and leave reviews.",
+        authSubtitleSignin: "Welcome back! Sign in to access your profile and favorites.",
+        usernamePlaceholder: "Username",
+        emailPlaceholder: "Email",
+        passwordPlaceholder: "Password",
+        signUp: "Sign Up",
+        alreadyAccount: "Already have an account?",
+        needAccount: "Need an account?",
+        totalReviews: "Total Reviews",
+        verifiedReviews: "Verified Reviews",
+        favoriteBrands: "Favorite Brands",
+        noFavorites: "No favorite brands yet. Click the heart icon on any brand card or detail page!",
+        accountSettings: "Account Settings",
+        countryLabel: "Country",
+        countryPlaceholder: "Search country...",
+        saveChanges: "Save Changes",
+        signOut: "Sign Out",
+        verifiedBuyer: "✓ Verified Buyer",
+        unverifiedReviewer: "Unverified",
+        writeReview: "Write a Review",
+        reviewPlaceholder: "Share your experience with this brand...",
+        ratingLabel: "Rating (0–10):",
+        verifiedCheckbox: "Verified purchase / account",
+        postReview: "Post Review",
+        visitSite: "Visit Official Site",
+        addFav: "♡ Favorite",
+        inFav: "♥ Favorited",
+        visits: "Visits",
+        listed: "Listed",
+        globalRating: "Global Rating",
+        verifiedScore: "Verified",
+        unverifiedScore: "Unverified",
+        noBrands: "No brands match your current filter.",
+        allFilter: "All",
+        verifiedFilter: "Verified only",
+        sortRecent: "Most recent",
+        sortHelpful: "Most helpful",
+        sortHighest: "Highest rating",
+        sortLowest: "Lowest rating",
+        profileUpdated: "Profile updated!",
+        avatarUpdated: "Avatar updated!",
+        reviewPosted: "Review posted!",
+        loginRequired: "Please sign in first.",
+        resendVerification: "↻ Resend verification email",
+        verificationSent: "Verification email sent! Check your inbox and spam folder.",
+        emailNotVerified: "Please verify your email address before signing in. Check your inbox or click below to resend.",
+        signupVerifyNotice: "Account created! Please check your email and click the verification link before signing in.",
+        catNames: {
+            "All": "All",
+            "Sports": "Sports",
+            "Fashion": "Fashion",
+            "Games": "Games",
+            "Everyday Life": "Everyday Life",
+            "Books": "Books",
+            "Technology": "Technology"
+        }
+    },
+    fr: {
+        dir: "ltr",
+        categoriesTitle: "Catégories",
+        sortLabel: "Trier par :",
+        searchPlaceholder: "Rechercher une marque...",
+        signIn: "Connexion",
+        myAccount: "Mon Compte",
+        profileMenu: "Menu Profil",
+        backToCatalog: "← Retour au catalogue",
+        createAccount: "Créer un compte",
+        authSubtitleSignup: "Rejoignez Go Find Me pour enregistrer vos marques favorites et publier des avis.",
+        authSubtitleSignin: "Bon retour ! Connectez-vous pour accéder à votre profil et vos favoris.",
+        usernamePlaceholder: "Nom d'utilisateur",
+        emailPlaceholder: "Adresse e-mail",
+        passwordPlaceholder: "Mot de passe",
+        signUp: "S'inscrire",
+        alreadyAccount: "Déjà un compte ?",
+        needAccount: "Besoin d'un compte ?",
+        totalReviews: "Avis totaux",
+        verifiedReviews: "Avis vérifiés",
+        favoriteBrands: "Marques favorites",
+        noFavorites: "Aucune marque favorite pour le moment. Cliquez sur le cœur d'une marque !",
+        accountSettings: "Paramètres du compte",
+        countryLabel: "Pays",
+        countryPlaceholder: "Rechercher un pays...",
+        saveChanges: "Enregistrer",
+        signOut: "Déconnexion",
+        verifiedBuyer: "✓ Acheteur vérifié",
+        unverifiedReviewer: "Non vérifié",
+        writeReview: "Écrire un avis",
+        reviewPlaceholder: "Partagez votre expérience avec cette marque...",
+        ratingLabel: "Note (0–10) :",
+        verifiedCheckbox: "Achat / compte vérifié",
+        postReview: "Publier l'avis",
+        visitSite: "Visiter le site officiel",
+        addFav: "♡ Favori",
+        inFav: "♥ Favori",
+        visits: "Visites",
+        listed: "Ajoutée",
+        globalRating: "Note globale",
+        verifiedScore: "Vérifié",
+        unverifiedScore: "Non vérifié",
+        noBrands: "Aucune marque ne correspond à vos filtres.",
+        allFilter: "Tous",
+        verifiedFilter: "Vérifiés uniquement",
+        sortRecent: "Plus récents",
+        sortHelpful: "Plus utiles",
+        sortHighest: "Meilleure note",
+        sortLowest: "Moins bonne note",
+        profileUpdated: "Profil mis à jour !",
+        avatarUpdated: "Avatar mis à jour !",
+        reviewPosted: "Avis publié !",
+        loginRequired: "Veuillez d'abord vous connecter.",
+        resendVerification: "↻ Renvoyer l'e-mail de vérification",
+        verificationSent: "E-mail de vérification envoyé ! Vérifiez votre boîte de réception et vos spams.",
+        emailNotVerified: "Veuillez vérifier votre adresse e-mail avant de vous connecter. Consultez votre boîte mail ou renvoyez le lien.",
+        signupVerifyNotice: "Compte créé ! Vérifiez votre boîte mail et cliquez sur le lien de confirmation avant de vous connecter.",
+        catNames: {
+            "All": "Tout",
+            "Sports": "Sports",
+            "Fashion": "Mode",
+            "Games": "Jeux",
+            "Everyday Life": "Vie quotidienne",
+            "Books": "Livres",
+            "Technology": "Technologie"
+        }
+    },
+    ar: {
+        dir: "rtl",
+        categoriesTitle: "الفئات",
+        sortLabel: "ترتيب حسب:",
+        searchPlaceholder: "ابحث عن علامة تجارية...",
+        signIn: "تسجيل الدخول",
+        myAccount: "حسابي",
+        profileMenu: "قائمة الملف الشخصي",
+        backToCatalog: "→ العودة إلى الكتالوج",
+        createAccount: "إنشاء حساب",
+        authSubtitleSignup: "انضم إلى Go Find Me لحفظ العلامات المفضلة وكتابة التقييمات.",
+        authSubtitleSignin: "مرحبًا بعودتك! سجل الدخول للوصول إلى ملفك الشخصي ومفضلاتك.",
+        usernamePlaceholder: "اسم المستخدم",
+        emailPlaceholder: "البريد الإلكتروني",
+        passwordPlaceholder: "كلمة المرور",
+        signUp: "إنشاء حساب",
+        alreadyAccount: "لديك حساب بالفعل؟",
+        needAccount: "تحتاج إلى حساب؟",
+        totalReviews: "إجمالي التقييمات",
+        verifiedReviews: "تقييمات موثقة",
+        favoriteBrands: "العلامات المفضلة",
+        noFavorites: "لا توجد علامات مفضلة بعد. اضغط على أيقونة القلب في أي بطاقة!",
+        accountSettings: "إعدادات الحساب",
+        countryLabel: "البلد",
+        countryPlaceholder: "ابحث عن بلد...",
+        saveChanges: "حفظ التغييرات",
+        signOut: "تسجيل الخروج",
+        verifiedBuyer: "✓ مشتري موثق",
+        unverifiedReviewer: "غير موثق",
+        writeReview: "اكتب تقييمًا",
+        reviewPlaceholder: "شارك تجربتك مع هذه العلامة التجارية...",
+        ratingLabel: "التقييم (0–10):",
+        verifiedCheckbox: "شراء / حساب موثق",
+        postReview: "نشر التقييم",
+        visitSite: "زيارة الموقع الرسمي",
+        addFav: "♡ مفضلة",
+        inFav: "♥ في المفضلة",
+        visits: "الزيارات",
+        listed: "تاريخ الإضافة",
+        globalRating: "التقييم العام",
+        verifiedScore: "موثق",
+        unverifiedScore: "غير موثق",
+        noBrands: "لا توجد علامات تطابق بحثك.",
+        allFilter: "الكل",
+        verifiedFilter: "الموثقة فقط",
+        sortRecent: "الأحدث",
+        sortHelpful: "الأكثر فائدة",
+        sortHighest: "الأعلى تقييمًا",
+        sortLowest: "الأقل تقييمًا",
+        profileUpdated: "تم تحديث الملف الشخصي!",
+        avatarUpdated: "تم تحديث الصورة الرمزية!",
+        reviewPosted: "تم نشر التقييم!",
+        loginRequired: "يرجى تسجيل الدخول أولًا.",
+        resendVerification: "↻ إعادة إرسال رسالة التحقق",
+        verificationSent: "تم إرسال رسالة التحقق! تفقد بريدك الوارد والرسائل غير المرغوب فيها.",
+        emailNotVerified: "يرجى تأكيد بريدك الإلكتروني قبل تسجيل الدخول.",
+        signupVerifyNotice: "تم إنشاء الحساب! تفقد بريدك الإلكتروني واضغط على رابط التفعيل قبل تسجيل الدخول.",
+        catNames: {
+            "All": "الكل",
+            "Sports": "رياضة",
+            "Fashion": "أزياء",
+            "Games": "ألعاب",
+            "Everyday Life": "الحياة اليومية",
+            "Books": "كتب",
+            "Technology": "تكنولوجيا"
+        }
+    },
+    es: {
+        dir: "ltr",
+        categoriesTitle: "Categorías",
+        sortLabel: "Ordenar por:",
+        searchPlaceholder: "Buscar marcas...",
+        signIn: "Iniciar sesión",
+        myAccount: "Mi cuenta",
+        profileMenu: "Menú de perfil",
+        backToCatalog: "← Volver al catálogo",
+        createAccount: "Crear una cuenta",
+        authSubtitleSignup: "Únete a Go Find Me para guardar marcas favoritas y dejar reseñas.",
+        authSubtitleSignin: "¡Bienvenido de nuevo! Inicia sesión para acceder a tu perfil y favoritos.",
+        usernamePlaceholder: "Nombre de usuario",
+        emailPlaceholder: "Correo electrónico",
+        passwordPlaceholder: "Contraseña",
+        signUp: "Registrarse",
+        alreadyAccount: "¿Ya tienes una cuenta?",
+        needAccount: "¿Necesitas una cuenta?",
+        totalReviews: "Reseñas totales",
+        verifiedReviews: "Reseñas verificadas",
+        favoriteBrands: "Marcas favoritas",
+        noFavorites: "Aún no tienes marcas favoritas.",
+        accountSettings: "Configuración de cuenta",
+        countryLabel: "País",
+        countryPlaceholder: "Buscar país...",
+        saveChanges: "Guardar cambios",
+        signOut: "Cerrar sesión",
+        verifiedBuyer: "✓ Comprador verificado",
+        unverifiedReviewer: "No verificado",
+        writeReview: "Escribir una reseña",
+        reviewPlaceholder: "Comparte tu experiencia con esta marca...",
+        ratingLabel: "Puntuación (0–10):",
+        verifiedCheckbox: "Compra / cuenta verificada",
+        postReview: "Publicar reseña",
+        visitSite: "Visitar sitio oficial",
+        addFav: "♡ Favorito",
+        inFav: "♥ Favorito",
+        visits: "Visitas",
+        listed: "Añadida",
+        globalRating: "Puntuación global",
+        verifiedScore: "Verificado",
+        unverifiedScore: "No verificado",
+        noBrands: "Ninguna marca coincide con tu filtro.",
+        allFilter: "Todas",
+        verifiedFilter: "Solo verificadas",
+        sortRecent: "Más recientes",
+        sortHelpful: "Más útiles",
+        sortHighest: "Mayor puntuación",
+        sortLowest: "Menor puntuación",
+        profileUpdated: "¡Perfil actualizado!",
+        avatarUpdated: "¡Avatar actualizado!",
+        reviewPosted: "¡Reseña publicada!",
+        loginRequired: "Inicia sesión primero.",
+        resendVerification: "↻ Reenviar correo de verificación",
+        verificationSent: "¡Correo de verificación enviado! Revisa tu bandeja de entrada y spam.",
+        emailNotVerified: "Verifica tu correo electrónico antes de iniciar sesión.",
+        signupVerifyNotice: "¡Cuenta creada! Revisa tu correo y haz clic en el enlace de verificación.",
+        catNames: {
+            "All": "Todas",
+            "Sports": "Deportes",
+            "Fashion": "Moda",
+            "Games": "Juegos",
+            "Everyday Life": "Vida cotidiana",
+            "Books": "Libros",
+            "Technology": "Tecnología"
+        }
+    },
+    de: {
+        dir: "ltr",
+        categoriesTitle: "Kategorien",
+        sortLabel: "Sortieren nach:",
+        searchPlaceholder: "Marken suchen...",
+        signIn: "Anmelden",
+        myAccount: "Mein Konto",
+        profileMenu: "Profilmenü",
+        backToCatalog: "← Zurück zum Katalog",
+        createAccount: "Konto erstellen",
+        authSubtitleSignup: "Tritt Go Find Me bei, um Lieblingsmarken zu speichern und Bewertungen zu schreiben.",
+        authSubtitleSignin: "Willkommen zurück! Melde dich an, um Profil und Favoriten zu öffnen.",
+        usernamePlaceholder: "Benutzername",
+        emailPlaceholder: "E-Mail",
+        passwordPlaceholder: "Passwort",
+        signUp: "Registrieren",
+        alreadyAccount: "Schon ein Konto?",
+        needAccount: "Noch kein Konto?",
+        totalReviews: "Bewertungen gesamt",
+        verifiedReviews: "Verifizierte Bewertungen",
+        favoriteBrands: "Lieblingsmarken",
+        noFavorites: "Noch keine Lieblingsmarken gespeichert.",
+        accountSettings: "Kontoeinstellungen",
+        countryLabel: "Land",
+        countryPlaceholder: "Land suchen...",
+        saveChanges: "Änderungen speichern",
+        signOut: "Abmelden",
+        verifiedBuyer: "✓ Verifizierter Käufer",
+        unverifiedReviewer: "Nicht verifiziert",
+        writeReview: "Bewertung schreiben",
+        reviewPlaceholder: "Teile deine Erfahrungen mit dieser Marke...",
+        ratingLabel: "Bewertung (0–10):",
+        verifiedCheckbox: "Verifizierter Kauf / Account",
+        postReview: "Bewertung senden",
+        visitSite: "Offizielle Website",
+        addFav: "♡ Favorit",
+        inFav: "♥ Favorit",
+        visits: "Aufrufe",
+        listed: "Gelisted",
+        globalRating: "Gesamtbewertung",
+        verifiedScore: "Verifiziert",
+        unverifiedScore: "Nicht verifiziert",
+        noBrands: "Keine Marken passen zu deinen Filtern.",
+        allFilter: "Alle",
+        verifiedFilter: "Nur verifizierte",
+        sortRecent: "Neueste",
+        sortHelpful: "Hilfreichste",
+        sortHighest: "Beste Bewertung",
+        sortLowest: "Schlechteste Bewertung",
+        profileUpdated: "Profil aktualisiert!",
+        avatarUpdated: "Avatar aktualisiert!",
+        reviewPosted: "Bewertung veröffentlicht!",
+        loginRequired: "Bitte zuerst anmelden.",
+        resendVerification: "↻ Bestätigungs-E-Mail erneut senden",
+        verificationSent: "Bestätigungs-E-Mail gesendet! Prüfe Posteingang und Spam.",
+        emailNotVerified: "Bitte bestätige deine E-Mail-Adresse vor der Anmeldung.",
+        signupVerifyNotice: "Konto erstellt! Bitte bestätige den Link in deiner E-Mail vor der Anmeldung.",
+        catNames: {
+            "All": "Alle",
+            "Sports": "Sport",
+            "Fashion": "Mode",
+            "Games": "Spiele",
+            "Everyday Life": "Alltag",
+            "Books": "Bücher",
+            "Technology": "Technologie"
+        }
+    },
+    it: {
+        dir: "ltr",
+        categoriesTitle: "Categorie",
+        sortLabel: "Ordina per:",
+        searchPlaceholder: "Cerca brand...",
+        signIn: "Accedi",
+        myAccount: "Il mio account",
+        profileMenu: "Menu profilo",
+        backToCatalog: "← Torna al catalogo",
+        createAccount: "Crea un account",
+        authSubtitleSignup: "Unisciti a Go Find Me per salvare i brand preferiti e lasciare recensioni.",
+        authSubtitleSignin: "Bentornato! Accedi per visualizzare profilo e preferiti.",
+        usernamePlaceholder: "Nome utente",
+        emailPlaceholder: "Email",
+        passwordPlaceholder: "Password",
+        signUp: "Registrati",
+        alreadyAccount: "Hai già un account?",
+        needAccount: "Ti serve un account?",
+        totalReviews: "Recensioni totali",
+        verifiedReviews: "Recensioni verificate",
+        favoriteBrands: "Brand preferiti",
+        noFavorites: "Nessun brand preferito al momento.",
+        accountSettings: "Impostazioni account",
+        countryLabel: "Paese",
+        countryPlaceholder: "Cerca paese...",
+        saveChanges: "Salva modifiche",
+        signOut: "Esci",
+        verifiedBuyer: "✓ Acquirente verificato",
+        unverifiedReviewer: "Non verificato",
+        writeReview: "Scrivi una recensione",
+        reviewPlaceholder: "Condividi la tua esperienza con questo brand...",
+        ratingLabel: "Voto (0–10):",
+        verifiedCheckbox: "Acquisto / account verificato",
+        postReview: "Pubblica recensione",
+        visitSite: "Visita sito ufficiale",
+        addFav: "♡ Preferito",
+        inFav: "♥ Preferito",
+        visits: "Visite",
+        listed: "Aggiunto",
+        globalRating: "Voto globale",
+        verifiedScore: "Verificato",
+        unverifiedScore: "Non verificato",
+        noBrands: "Nessun brand corrisponde ai filtri.",
+        allFilter: "Tutti",
+        verifiedFilter: "Solo verificati",
+        sortRecent: "Più recenti",
+        sortHelpful: "Più utili",
+        sortHighest: "Voto più alto",
+        sortLowest: "Voto più basso",
+        profileUpdated: "Profilo aggiornato!",
+        avatarUpdated: "Avatar aggiornato!",
+        reviewPosted: "Recensione pubblicata!",
+        loginRequired: "Accedi prima di continuare.",
+        resendVerification: "↻ Invia di nuovo l'email di verifica",
+        verificationSent: "Email di verifica inviata! Controlla posta in arrivo e spam.",
+        emailNotVerified: "Verifica la tua email prima di accedere.",
+        signupVerifyNotice: "Account creato! Controlla l'email e clicca sul link di verifica.",
+        catNames: {
+            "All": "Tutti",
+            "Sports": "Sport",
+            "Fashion": "Moda",
+            "Games": "Giochi",
+            "Everyday Life": "Vita quotidiana",
+            "Books": "Libri",
+            "Technology": "Tecnologia"
+        }
+    },
+    pt: {
+        dir: "ltr",
+        categoriesTitle: "Categorias",
+        sortLabel: "Ordenar por:",
+        searchPlaceholder: "Pesquisar marcas...",
+        signIn: "Entrar",
+        myAccount: "Minha conta",
+        profileMenu: "Menu de perfil",
+        backToCatalog: "← Voltar ao catálogo",
+        createAccount: "Criar uma conta",
+        authSubtitleSignup: "Entre no Go Find Me para salvar marcas favoritas e deixar avaliações.",
+        authSubtitleSignin: "Bem-vindo de volta! Entre para acessar seu perfil e favoritos.",
+        usernamePlaceholder: "Nome de usuário",
+        emailPlaceholder: "E-mail",
+        passwordPlaceholder: "Senha",
+        signUp: "Cadastrar",
+        alreadyAccount: "Já tem uma conta?",
+        needAccount: "Precisa de uma conta?",
+        totalReviews: "Avaliações totais",
+        verifiedReviews: "Avaliações verificadas",
+        favoriteBrands: "Marcas favoritas",
+        noFavorites: "Nenhuma marca favorita ainda.",
+        accountSettings: "Configurações da conta",
+        countryLabel: "País",
+        countryPlaceholder: "Buscar país...",
+        saveChanges: "Salvar alterações",
+        signOut: "Sair",
+        verifiedBuyer: "✓ Comprador verificado",
+        unverifiedReviewer: "Não verificado",
+        writeReview: "Escrever avaliação",
+        reviewPlaceholder: "Compartilhe sua experiência com esta marca...",
+        ratingLabel: "Nota (0–10):",
+        verifiedCheckbox: "Compra / conta verificada",
+        postReview: "Publicar avaliação",
+        visitSite: "Visitar site oficial",
+        addFav: "♡ Favorito",
+        inFav: "♥ Favorito",
+        visits: "Visitas",
+        listed: "Adicionado",
+        globalRating: "Nota global",
+        verifiedScore: "Verificado",
+        unverifiedScore: "Não verificado",
+        noBrands: "Nenhuma marca corresponde ao filtro.",
+        allFilter: "Todas",
+        verifiedFilter: "Apenas verificadas",
+        sortRecent: "Mais recentes",
+        sortHelpful: "Mais úteis",
+        sortHighest: "Maior nota",
+        sortLowest: "Menor nota",
+        profileUpdated: "Perfil atualizado!",
+        avatarUpdated: "Avatar atualizado!",
+        reviewPosted: "Avaliação publicada!",
+        loginRequired: "Faça login primeiro.",
+        resendVerification: "↻ Reenviar e-mail de verificação",
+        verificationSent: "E-mail de verificação enviado! Verifique sua caixa de entrada e spam.",
+        emailNotVerified: "Verifique seu e-mail antes de entrar.",
+        signupVerifyNotice: "Conta criada! Verifique seu e-mail e clique no link de confirmação.",
+        catNames: {
+            "All": "Todas",
+            "Sports": "Esportes",
+            "Fashion": "Moda",
+            "Games": "Jogos",
+            "Everyday Life": "Dia a dia",
+            "Books": "Livros",
+            "Technology": "Tecnologia"
+        }
+    }
 };
 
-let brands = [];
+const BRAND_TRANSLATIONS = {
+    fr: {
+        "Nike": "Chaussures et vêtements de sport conçus pour la course et l'entraînement.",
+        "Adidas": "Équipements de sport, chaussures et vêtements de performance mondiaux.",
+        "Zara": "Mode tendance rapide, vêtements et accessoires pour homme, femme et enfant.",
+        "Nintendo": "Jeux vidéo emblématiques, consoles et franchises de divertissement.",
+        "IKEA": "Meubles prêts à monter, décoration et solutions pour la maison.",
+        "Penguin Books": "Éditions de littérature classique, fiction contemporaine et essais.",
+        "Apple": "Matériel informatique, smartphones, logiciels et services d'écosystème.",
+        "Patagonia": "Vêtements d'extérieur axés sur la durabilité et la protection de l'environnement.",
+        "Steam": "Plateforme numérique de distribution, de jeu et de communauté PC.",
+        "Sony": "Électronique grand public, audio, caméras et divertissement PlayStation."
+    },
+    ar: {
+        "Nike": "أحذية وملابس رياضية مصممة للجري والتدريب.",
+        "Adidas": "معدات رياضية وأحذية وملابس أداء عالمية.",
+        "Zara": "أزياء عصرية سريعة وملابس وإكسسوارات للجميع.",
+        "Nintendo": "ألعاب فيديو شهيرة وأجهزة ألعاب وترفيه.",
+        "IKEA": "أثاث جاهز للتركيب وديكور وحلول منزلية.",
+        "Penguin Books": "نشر الأدب الكلاسيكي والروايات والكتب المعرفية.",
+        "Apple": "أجهزة حاسوب وهواتف ذكية وبرمجيات وخدمات متكاملة.",
+        "Patagonia": "ملابس خارجية تركز على الاستدامة وحماية البيئة.",
+        "Steam": "منصة رقمية لتوزيع الألعاب والمجتمع على الحاسوب.",
+        "Sony": "إلكترونيات استهلاكية وصوتيات وكاميرات وترفيه بلايستيشن."
+    },
+    es: {
+        "Nike": "Calzado y ropa deportiva diseñados para correr y entrenar.",
+        "Adidas": "Equipación deportiva, zapatillas y ropa de rendimiento global.",
+        "Zara": "Moda rápida actual, ropa y accesorios para todos.",
+        "Nintendo": "Videojuegos icónicos, consolas y franquicias de entretenimiento.",
+        "IKEA": "Muebles modulares, decoración y soluciones para el hogar.",
+        "Penguin Books": "Editorial de clásicos literarios, ficción y no ficción.",
+        "Apple": "Hardware informático, smartphones, software y servicios.",
+        "Patagonia": "Ropa de exterior centrada en la sostenibilidad y el medio ambiente.",
+        "Steam": "Plataforma digital de distribución y comunidad de juegos para PC.",
+        "Sony": "Electrónica de consumo, audio, cámaras y entretenimiento."
+    },
+    de: {
+        "Nike": "Sportschuhe und Sportbekleidung für Laufen und Training.",
+        "Adidas": "Globale Sportausrüstung, Schuhe und Performance-Bekleidung.",
+        "Zara": "Aktuelle Fast Fashion, Kleidung und Accessoires.",
+        "Nintendo": "Bekannte Videospiele, Konsolen und Entertainment-Marken.",
+        "IKEA": "Möbel, Wohnaccessoires und Einrichtungslösungen.",
+        "Penguin Books": "Klassiker, Belletristik und Sachbücher im Verlag.",
+        "Apple": "Computer-Hardware, Smartphones, Software und Dienste.",
+        "Patagonia": "Outdoor-Bekleidung mit Fokus auf Nachhaltigkeit und Umweltschutz.",
+        "Steam": "Digitale Spieleplattform und Community für den PC.",
+        "Sony": "Unterhaltungselektronik, Audio, Kameras und PlayStation."
+    },
+    it: {
+        "Nike": "Calzature e abbigliamento sportivo per corsa e allenamento.",
+        "Adidas": "Articoli sportivi, scarpe e abbigliamento tecnico globale.",
+        "Zara": "Moda veloce, abbigliamento e accessori per tutti.",
+        "Nintendo": "Videogiochi iconici, console e intrattenimento.",
+        "IKEA": "Mobili, arredo e soluzioni per la casa.",
+        "Penguin Books": "Classici della letteratura, narrativa e saggistica.",
+        "Apple": "Hardware, smartphone, software e servizi dell'ecosistema.",
+        "Patagonia": "Abbigliamento outdoor attento a sostenibilità e ambiente.",
+        "Steam": "Piattaforma digitale e community per giochi PC.",
+        "Sony": "Elettronica di consumo, audio, fotocamere e intrattenimento."
+    },
+    pt: {
+        "Nike": "Calçados e roupas esportivas voltados para corrida e treino.",
+        "Adidas": "Artigos esportivos, tênis e roupas de performance.",
+        "Zara": "Moda rápida, roupas e acessórios para todos.",
+        "Nintendo": "Jogos icônicos, consoles e franquias de entretenimento.",
+        "IKEA": "Móveis, decoração e soluções para casa.",
+        "Penguin Books": "Clássicos literários, ficção e não ficção.",
+        "Apple": "Hardware, smartphones, software e serviços integrados.",
+        "Patagonia": "Roupas outdoor focadas em sustentabilidade e meio ambiente.",
+        "Steam": "Plataforma digital e comunidade de jogos para PC.",
+        "Sony": "Eletrônicos de consumo, áudio, câmeras e entretenimento."
+    }
+};
+
 let currentUser = null;
-let isSignUp = true;
-let isSubmittingAuth = false;
-let isResendingEmail = false;
-let currentSelectedBrandName = null;
-let draftCountry = null;
-let countryFilterQuery = '';
-let reviewFilterMode = 'all';
-let reviewSortMode = 'newest';
-let currentLang = 'en';
-let lastPendingEmail = '';
-const translatedCache = {};
-let toastTimer = null;
+let currentProfile = null;
+let isSignupMode = true;
+let activeCategory = "All";
+let currentSort = "verified-desc";
+let searchQuery = "";
+let currentLang = "en";
+let activeDetailBrandId = null;
+let activeReviewFilter = "all";
+let activeReviewSort = "recent";
+let pendingUnverifiedEmail = "";
 
-const defaultAvatarSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>`;
+let brands = [];
+let reviews = [];
+let userVotes = {};
 
-const eyeOpenSvg = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
-const eyeClosedSvg = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>`;
-
-function escapeHtml(value) {
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-}
-
-function escapeJsSingleQuote(value) {
-    return String(value ?? '')
-        .replace(/\\/g, '\\\\')
-        .replace(/'/g, "\\'");
-}
-
-function resolveBannerUrl(bannerValue) {
-    if (!bannerValue) return '';
-    const trimmed = String(bannerValue).trim();
-    if (!trimmed) return '';
-    if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:')) {
-        return encodeURI(trimmed);
-    }
-    const normalizedPath = trimmed.startsWith('images/') ? trimmed : `images/${trimmed}`;
-    return encodeURI(normalizedPath);
-}
-
-function getRedirectUrl() {
-    const originHref = window.location.origin + window.location.pathname;
-    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            return DEFAULT_REDIRECT_URL;
-        }
-        return originHref;
-    }
-    return DEFAULT_REDIRECT_URL;
-}
+const DEFAULT_BRANDS = [
+    { id: 1, name: "Nike", logo: "NK", category: "Sports", description: "Athletic footwear and performance apparel built for running and training.", url: "https://www.nike.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/640px-Logo_NIKE.svg.png", visits: 0, listed_date: "2023-04" },
+    { id: 2, name: "Adidas", logo: "AD", category: "Sports", description: "Global sportswear, footwear, and performance athletic gear.", url: "https://www.adidas.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/640px-Adidas_Logo.svg.png", visits: 0, listed_date: "2023-05" },
+    { id: 3, name: "Zara", logo: "ZR", category: "Fashion", description: "Fast-moving contemporary apparel, footwear, and accessories.", url: "https://www.zara.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/640px-Zara_Logo.svg.png", visits: 0, listed_date: "2024-01" },
+    { id: 4, name: "Nintendo", logo: "NT", category: "Games", description: "Iconic video games, consoles, and family-friendly entertainment.", url: "https://www.nintendo.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Nintendo.svg/640px-Nintendo.svg.png", visits: 0, listed_date: "2023-02" },
+    { id: 5, name: "IKEA", logo: "IK", category: "Everyday Life", description: "Ready-to-assemble furniture, home decor, and practical living solutions.", url: "https://www.ikea.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/640px-Ikea_logo.svg.png", visits: 0, listed_date: "2023-06" },
+    { id: 6, name: "Penguin Books", logo: "PB", category: "Books", description: "Publishing house known for classic literature, fiction, and non-fiction.", url: "https://www.penguin.com", banner: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Penguin_Books_logo.svg/512px-Penguin_Books_logo.svg.png", visits: 0, listed_date: "2024-03" },
+    { id: 7, name: "Apple", logo: "AP", category: "Technology", description: "Consumer hardware, smartphones, operating systems, and ecosystem services.", url: "https://www.apple.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/512px-Apple_logo_black.svg.png", visits: 0, listed_date: "2023-01" },
+    { id: 8, name: "Patagonia", logo: "PT", category: "Everyday Life", description: "Outdoor apparel focused on durability, repairs, and environmental activism.", url: "https://www.patagonia.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Patagonia_%28football_club%29_logo.svg/640px-Patagonia_%28football_club%29_logo.svg.png", visits: 0, listed_date: "2024-09" },
+    { id: 9, name: "Steam", logo: "ST", category: "Games", description: "Digital PC game storefront, cloud saves, and community platform.", url: "https://store.steampowered.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/512px-Steam_icon_logo.svg.png", visits: 0, listed_date: "2023-08" },
+    { id: 10, name: "Sony", logo: "SN", category: "Technology", description: "Consumer electronics, audio, imaging sensors, and PlayStation entertainment.", url: "https://www.sony.com", banner: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Sony_logo.svg/640px-Sony_logo.svg.png", visits: 0, listed_date: "2024-05" }
+];
 
 function showToast(message) {
-    const toast = document.getElementById('toast');
+    const toast = document.getElementById("toast");
     if (!toast) return;
     toast.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    toast.classList.add("show");
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2600);
 }
 
-function togglePasswordVisibility() {
-    const input = document.getElementById('passwordInput');
-    const eyeIcon = document.getElementById('eyeIcon');
-    if (!input || !eyeIcon) return;
+function getFlagSvg(code) {
+    return FLAGS[code] || `<span class="flag-icon" style="background:#e5e7eb;"></span>`;
+}
 
-    if (input.type === 'password') {
-        input.type = 'text';
-        eyeIcon.innerHTML = eyeClosedSvg;
-    } else {
-        input.type = 'password';
-        eyeIcon.innerHTML = eyeOpenSvg;
+function getCountryName(code) {
+    const found = COUNTRY_LANGUAGES.find(c => c.code === code);
+    return found ? found.name : "Morocco";
+}
+
+function getBrandDescription(brand) {
+    if (currentLang !== "en" && BRAND_TRANSLATIONS[currentLang]?.[brand.name]) {
+        return BRAND_TRANSLATIONS[currentLang][brand.name];
     }
+    return brand.description || "";
 }
 
-function toggleMobileSidebar(forceState) {
-    const sidebar = document.getElementById('sidebar');
-    const backdrop = document.getElementById('sidebarBackdrop');
-    const next = typeof forceState === 'boolean' ? forceState : !sidebar.classList.contains('open');
-    sidebar.classList.toggle('open', next);
-    backdrop.classList.toggle('open', next);
+function isNewBrand(listedDate) {
+    if (!listedDate) return false;
+    const parts = listedDate.split("-");
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1] || "1", 10) - 1;
+    if (isNaN(year)) return false;
+    const brandDate = new Date(year, month, 1);
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    return brandDate >= oneYearAgo;
 }
 
-function getLangForCountry(countryName) {
-    const found = COUNTRY_LANGUAGES.find(c => c.country === countryName);
-    return found ? found.lang : 'en';
-}
+function calculateBrandStats(brandId) {
+    const brandReviews = reviews.filter(r => r.brand_id === brandId);
+    const verifiedList = brandReviews.filter(r => r.is_verified);
+    const unverifiedList = brandReviews.filter(r => !r.is_verified);
 
-function getCountryInfo(countryName) {
-    return COUNTRY_LANGUAGES.find(c => c.country === countryName) || { country: countryName, flag: "us", lang: 'en', langLabel: 'English' };
-}
+    const avg = arr => {
+        if (!arr.length) return null;
+        return arr.reduce((acc, item) => acc + Number(item.rating), 0) / arr.length;
+    };
 
-function applyUIText(lang) {
-    const t = UI_TEXT[lang] || UI_TEXT.en;
-    const sidebarTitle = document.getElementById('sidebarTitle');
-    const sortLabel = document.getElementById('sortLabel');
-    const searchBar = document.getElementById('search');
-    if (sidebarTitle) sidebarTitle.textContent = t.categories;
-    if (sortLabel) sortLabel.textContent = t.sortBy;
-    if (searchBar) searchBar.placeholder = t.search;
-}
-
-async function autoTranslate(text, targetLang) {
-    if (targetLang === 'en' || !text) return text;
-    const cacheKey = targetLang + "_" + text;
-    if (translatedCache[cacheKey]) return translatedCache[cacheKey];
-
-    try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${targetLang}`;
-        const res = await fetch(url);
-        const data = await res.json();
-        if (data && data.responseData && data.responseData.translatedText) {
-            const translated = data.responseData.translatedText;
-            translatedCache[cacheKey] = translated;
-            return translated;
-        }
-    } catch (e) {
-        console.error("Traduction auto échouée", e);
-    }
-    return text;
-}
-
-async function changeLanguage(lang) {
-    currentLang = lang;
-    document.documentElement.lang = lang;
-    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-    applyUIText(lang);
-    const langSelect = document.getElementById('langSelect');
-    if (langSelect && langSelect.value !== lang) {
-        langSelect.value = lang;
-    }
-    updateAuthUI();
-    await render();
-    if (currentSelectedBrandName) {
-        await openBrandDetail(currentSelectedBrandName, false);
-    }
-}
-
-function computeBrandStats(brandRow, reviewRows) {
-    const list = reviewRows.map(r => ({
-        id: r.id,
-        username: r.username,
-        text: r.text,
-        rating: Number(r.rating),
-        verified: Boolean(r.verified),
-        date: new Date(r.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-        upvotes: Number(r.upvotes || 0),
-        downvotes: Number(r.downvotes || 0),
-        userVote: null
-    }));
-
-    let rating = 0, verified = 0, unverified = 0;
-    if (list.length > 0) {
-        let total = 0, verTotal = 0, verCount = 0, unvTotal = 0, unvCount = 0;
-        list.forEach(r => {
-            total += r.rating;
-            if (r.verified) {
-                verTotal += r.rating;
-                verCount++;
-            } else {
-                unvTotal += r.rating;
-                unvCount++;
-            }
-        });
-        rating = parseFloat((total / list.length).toFixed(1));
-        verified = verCount > 0 ? parseFloat((verTotal / verCount).toFixed(1)) : 0;
-        unverified = unvCount > 0 ? parseFloat((unvTotal / unvCount).toFixed(1)) : 0;
-    }
+    const verifiedAvg = avg(verifiedList);
+    const unverifiedAvg = avg(unverifiedList);
+    const globalAvg = avg(brandReviews);
 
     return {
-        id: brandRow.id,
-        name: brandRow.name,
-        mark: brandRow.mark,
-        category: brandRow.category,
-        banner: brandRow.banner,
-        description: brandRow.description,
-        website: brandRow.website,
-        visit_count: Number(brandRow.visit_count || 0),
-        created_at: String(brandRow.created_at || '').slice(0, 10),
-        rating,
-        verified,
-        unverified,
-        reviews: list.length,
-        userReviews: list
+        verifiedAvg,
+        unverifiedAvg,
+        globalAvg,
+        totalCount: brandReviews.length,
+        verifiedCount: verifiedList.length
     };
 }
 
-async function loadBrandsFromSupabase() {
-    const { data: brandRows, error: bErr } = await supabase
-        .from('brands')
-        .select('*')
-        .order('id', { ascending: true });
+function formatScore(val) {
+    return val === null || val === undefined || isNaN(val) ? "0.0" : Number(val).toFixed(1);
+}
 
-    if (bErr) {
-        console.error('Erreur chargement marques:', bErr.message);
-        showToast('Error loading brands');
-        return;
+function getCardScoreBadge(stats) {
+    if (currentSort.startsWith("verified")) {
+        return stats.verifiedAvg !== null ? `${formatScore(stats.verifiedAvg)}/10` : `${formatScore(stats.globalAvg)}/10`;
     }
-
-    const { data: reviewRows, error: rErr } = await supabase
-        .from('reviews')
-        .select('*')
-        .order('id', { ascending: false });
-
-    if (rErr) {
-        console.error('Erreur chargement avis:', rErr.message);
+    if (currentSort.startsWith("unverified")) {
+        return stats.unverifiedAvg !== null ? `${formatScore(stats.unverifiedAvg)}/10` : `${formatScore(stats.globalAvg)}/10`;
     }
+    return `${formatScore(stats.globalAvg)}/10`;
+}
 
-    const reviewsByBrand = {};
-    (reviewRows || []).forEach(r => {
-        if (!reviewsByBrand[r.brand_id]) reviewsByBrand[r.brand_id] = [];
-        reviewsByBrand[r.brand_id].push(r);
+function toggleMobileSidebar(forceState) {
+    const sidebar = document.getElementById("sidebar");
+    const backdrop = document.getElementById("sidebarBackdrop");
+    if (!sidebar || !backdrop) return;
+    const shouldOpen = typeof forceState === "boolean" ? forceState : !sidebar.classList.contains("open");
+    sidebar.classList.toggle("open", shouldOpen);
+    backdrop.classList.toggle("open", shouldOpen);
+}
+window.toggleMobileSidebar = toggleMobileSidebar;
+
+function applyTranslations() {
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = t.dir;
+
+    const sidebarTitle = document.getElementById("sidebarTitle");
+    if (sidebarTitle) sidebarTitle.textContent = t.categoriesTitle;
+
+    const sortLabel = document.getElementById("sortLabel");
+    if (sortLabel) sortLabel.textContent = t.sortLabel;
+
+    const searchInput = document.getElementById("search");
+    if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+
+    document.querySelectorAll(".cat-label").forEach(el => {
+        const key = el.getAttribute("data-cat-name");
+        if (key && t.catNames[key]) {
+            el.textContent = t.catNames[key];
+        }
     });
 
-    brands = (brandRows || []).map(b => computeBrandStats(b, reviewsByBrand[b.id] || []));
-    await render();
+    const sectionTitle = document.getElementById("section-title");
+    if (sectionTitle) {
+        sectionTitle.textContent = t.catNames[activeCategory] || activeCategory;
+    }
+
+    renderAuthUI();
+    renderCatalog();
+    if (activeDetailBrandId !== null) {
+        renderBrandDetail(activeDetailBrandId);
+    }
+    const profilePage = document.getElementById("profilePage");
+    if (profilePage && profilePage.classList.contains("active")) {
+        renderProfilePage();
+    }
 }
 
-async function loadUserProfile(authUser) {
-    if (!authUser || !authUser.email_confirmed_at) {
-        currentUser = null;
-        updateAuthUI();
+function changeLanguage(lang) {
+    currentLang = UI_TEXT[lang] ? lang : "en";
+    localStorage.setItem("gfm_lang", currentLang);
+    applyTranslations();
+}
+window.changeLanguage = changeLanguage;
+
+function renderAuthUI() {
+    const container = document.getElementById("authContainer");
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    if (!container) return;
+
+    if (!currentUser) {
+        container.innerHTML = `<button class="auth-btn" onclick="openModal()">${t.signIn}</button>`;
         return;
     }
 
-    const { data: profile, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', authUser.id)
-        .single();
+    const displayName = currentProfile?.username || currentUser.email?.split("@")[0] || "User";
+    const avatarUrl = currentProfile?.avatar_url;
+    const avatarHtml = avatarUrl
+        ? `<img src="${avatarUrl}" alt="${displayName}">`
+        : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>`;
 
-    const fallbackName = authUser.user_metadata?.username || authUser.email.split('@')[0];
-
-    if (error || !profile) {
-        const newProfile = {
-            id: authUser.id,
-            username: fallbackName,
-            country: 'Morocco',
-            preferred_lang: currentLang,
-            avatar_url: null,
-            favorites: [],
-            verified_ratings_count: 0,
-            unverified_ratings_count: 0
-        };
-        await supabase.from('profiles').upsert(newProfile);
-        currentUser = {
-            id: authUser.id,
-            email: authUser.email,
-            username: newProfile.username,
-            country: newProfile.country,
-            preferredLang: newProfile.preferred_lang,
-            avatar: null,
-            favorites: [],
-            verifiedRatingsCount: 0,
-            unverifiedRatingsCount: 0,
-            createdAt: new Date(authUser.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-        };
-    } else {
-        currentUser = {
-            id: authUser.id,
-            email: authUser.email,
-            username: profile.username || fallbackName,
-            country: profile.country || 'Morocco',
-            preferredLang: profile.preferred_lang || 'en',
-            avatar: profile.avatar_url || null,
-            favorites: Array.isArray(profile.favorites) ? profile.favorites : [],
-            verifiedRatingsCount: Number(profile.verified_ratings_count || 0),
-            unverifiedRatingsCount: Number(profile.unverified_ratings_count || 0),
-            createdAt: new Date(profile.created_at || authUser.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-        };
-    }
-
-    if (currentUser.preferredLang && currentUser.preferredLang !== currentLang) {
-        currentLang = currentUser.preferredLang;
-        document.documentElement.lang = currentLang;
-        document.documentElement.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
-        const langSelect = document.getElementById('langSelect');
-        if (langSelect) langSelect.value = currentLang;
-        applyUIText(currentLang);
-    }
-
-    updateAuthUI();
-    await render();
+    container.innerHTML = `
+        <div class="user-trigger" onclick="openProfilePage()">
+            <div class="avatar-container">${avatarHtml}</div>
+            <span class="username-label">${displayName}</span>
+        </div>
+    `;
 }
 
-function updateAuthUI() {
-    const container = document.getElementById('authContainer');
+function openModal(mode = "signup") {
     const t = UI_TEXT[currentLang] || UI_TEXT.en;
-    if (currentUser) {
-        const avatarContent = currentUser.avatar ? `<img src="${escapeHtml(currentUser.avatar)}" alt="Avatar">` : defaultAvatarSvg;
-        container.innerHTML = `
-            <div class="user-trigger" onclick="openProfilePage()">
-                <div class="avatar-container">${avatarContent}</div>
-                <span class="username-label">${escapeHtml(currentUser.username)}</span>
-            </div>
-        `;
+    isSignupMode = mode === "signup";
+    const overlay = document.getElementById("modalOverlay");
+    const usernameWrap = document.getElementById("usernameWrap");
+    const title = document.getElementById("modalTitle");
+    const subtitle = document.getElementById("modalSubtitle");
+    const submitBtn = document.getElementById("modalSubmit");
+    const toggleSpan = document.getElementById("modalToggle");
+    const errEl = document.getElementById("authError");
+    const infoEl = document.getElementById("authInfo");
+    const boxEl = document.getElementById("authFeedbackBox");
+    const resendBtn = document.getElementById("resendVerificationBtn");
+
+    if (errEl) errEl.textContent = "";
+    if (infoEl) infoEl.textContent = "";
+    if (boxEl) boxEl.classList.remove("has-content");
+    if (resendBtn) resendBtn.classList.remove("visible");
+
+    if (isSignupMode) {
+        if (usernameWrap) usernameWrap.style.display = "flex";
+        if (title) title.textContent = t.createAccount;
+        if (subtitle) subtitle.textContent = t.authSubtitleSignup;
+        if (submitBtn) submitBtn.textContent = t.signUp;
+        if (toggleSpan) toggleSpan.innerHTML = `${t.alreadyAccount} <strong>${t.signIn}</strong>`;
     } else {
-        container.innerHTML = `<button class="auth-btn" onclick="openModal()">${escapeHtml(t.signIn)}</button>`;
+        if (usernameWrap) usernameWrap.style.display = "none";
+        if (title) title.textContent = t.signIn;
+        if (subtitle) subtitle.textContent = t.authSubtitleSignin;
+        if (submitBtn) submitBtn.textContent = t.signIn;
+        if (toggleSpan) toggleSpan.innerHTML = `${t.needAccount} <strong>${t.signUp}</strong>`;
+    }
+
+    if (overlay) overlay.classList.add("open");
+}
+window.openModal = openModal;
+
+function closeModal() {
+    const overlay = document.getElementById("modalOverlay");
+    if (overlay) overlay.classList.remove("open");
+}
+window.closeModal = closeModal;
+
+function toggleAuthMode() {
+    openModal(isSignupMode ? "signin" : "signup");
+}
+window.toggleAuthMode = toggleAuthMode;
+
+function togglePasswordVisibility() {
+    const input = document.getElementById("passwordInput");
+    if (!input) return;
+    input.type = input.type === "password" ? "text" : "password";
+}
+window.togglePasswordVisibility = togglePasswordVisibility;
+
+function setAuthFeedback({ error = "", info = "", showResend = false }) {
+    const errEl = document.getElementById("authError");
+    const infoEl = document.getElementById("authInfo");
+    const boxEl = document.getElementById("authFeedbackBox");
+    const resendBtn = document.getElementById("resendVerificationBtn");
+
+    if (errEl) errEl.textContent = error;
+    if (infoEl) infoEl.textContent = info;
+    if (resendBtn) resendBtn.classList.toggle("visible", Boolean(showResend));
+    if (boxEl) boxEl.classList.toggle("has-content", Boolean(error || info || showResend));
+}
+
+async function resendVerificationEmail() {
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    const emailInput = document.getElementById("emailInput");
+    const targetEmail = (emailInput?.value.trim() || pendingUnverifiedEmail || "").trim();
+    if (!targetEmail) {
+        setAuthFeedback({ error: "Enter your email address first." });
+        return;
+    }
+
+    const resendBtn = document.getElementById("resendVerificationBtn");
+    if (resendBtn) resendBtn.disabled = true;
+
+    const { error } = await supabase.auth.resend({
+        type: "signup",
+        email: targetEmail,
+        options: { emailRedirectTo: DEFAULT_REDIRECT_URL }
+    });
+
+    if (resendBtn) resendBtn.disabled = false;
+
+    if (error) {
+        setAuthFeedback({ error: error.message, showResend: true });
+    } else {
+        setAuthFeedback({ info: t.verificationSent, showResend: true });
+    }
+}
+window.resendVerificationEmail = resendVerificationEmail;
+
+async function handleAuth() {
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    const usernameInput = document.getElementById("usernameInput");
+    const emailInput = document.getElementById("emailInput");
+    const passwordInput = document.getElementById("passwordInput");
+    const submitBtn = document.getElementById("modalSubmit");
+
+    const username = usernameInput?.value.trim() || "";
+    const email = emailInput?.value.trim() || "";
+    const password = passwordInput?.value || "";
+
+    setAuthFeedback({});
+
+    if (!email || !password) {
+        setAuthFeedback({ error: "Please fill in email and password." });
+        return;
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+        if (isSignupMode) {
+            const { data, error } = await supabase.auth.signUp({
+                email,
+                password,
+                options: {
+                    emailRedirectTo: DEFAULT_REDIRECT_URL,
+                    data: { username: username || email.split("@")[0] }
+                }
+            });
+            if (error) {
+                setAuthFeedback({ error: error.message });
+                return;
+            }
+            pendingUnverifiedEmail = email;
+            if (data.user && !data.session) {
+                setAuthFeedback({ info: t.signupVerifyNotice, showResend: true });
+            } else if (data.user) {
+                await ensureProfileExists(data.user, username);
+                closeModal();
+                showToast(t.profileUpdated);
+            }
+        } else {
+            const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+            if (error) {
+                const isUnconfirmed = /confirm|verify|email not confirmed/i.test(error.message);
+                pendingUnverifiedEmail = email;
+                setAuthFeedback({
+                    error: isUnconfirmed ? t.emailNotVerified : error.message,
+                    showResend: isUnconfirmed
+                });
+                return;
+            }
+            if (data.user) {
+                await loadUserSessionData(data.user);
+                closeModal();
+                showToast(t.profileUpdated);
+            }
+        }
+    } finally {
+        if (submitBtn) submitBtn.disabled = false;
+    }
+}
+window.handleAuth = handleAuth;
+
+async function ensureProfileExists(user, fallbackUsername = "") {
+    if (!user) return;
+    const defaultCountry = COUNTRY_LANGUAGES.find(c => c.lang === currentLang)?.code || "ma";
+    const chosenUsername = (fallbackUsername || user.user_metadata?.username || user.email?.split("@")[0] || "User").trim();
+
+    const { data: existing } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .maybeSingle();
+
+    if (existing) {
+        currentProfile = existing;
+    } else {
+        const { data: inserted } = await supabase
+            .from("profiles")
+            .upsert({
+                id: user.id,
+                username: chosenUsername,
+                country: defaultCountry,
+                favorites: []
+            })
+            .select()
+            .single();
+        currentProfile = inserted || {
+            id: user.id,
+            username: chosenUsername,
+            country: defaultCountry,
+            favorites: []
+        };
     }
 }
 
-function toggleCountryMenu(e) {
-    e.stopPropagation();
-    const menu = document.getElementById('countryMenu');
-    if (!menu) return;
-    const isOpening = !menu.classList.contains('open');
-    menu.classList.toggle('open', isOpening);
-    if (isOpening) {
-        const input = document.getElementById('countrySearchInput');
-        if (input) setTimeout(() => input.focus(), 20);
+async function loadUserSessionData(user) {
+    currentUser = user;
+    if (!user) {
+        currentProfile = null;
+        userVotes = {};
+        renderAuthUI();
+        return;
     }
+    await ensureProfileExists(user);
+    const { data: votesData } = await supabase
+        .from("review_votes")
+        .select("review_id, vote_type")
+        .eq("user_id", user.id);
+
+    userVotes = {};
+    if (Array.isArray(votesData)) {
+        votesData.forEach(v => {
+            userVotes[v.review_id] = v.vote_type;
+        });
+    }
+    renderAuthUI();
 }
 
-function renderCountryOptions(activeCountry) {
-    const q = countryFilterQuery.trim().toLowerCase();
-    const filtered = COUNTRY_LANGUAGES.filter(item =>
-        item.country.toLowerCase().includes(q) || item.langLabel.toLowerCase().includes(q)
-    );
-    if (filtered.length === 0) {
-        return `<div style="padding: 12px; font-size: 13px; color: #777; text-align: center;">No country found</div>`;
-    }
-    return filtered.map(item => `
-        <button type="button" class="country-option ${item.country === activeCountry ? 'active' : ''}" data-country="${escapeHtml(item.country)}" onclick="selectCountryOption('${escapeJsSingleQuote(item.country)}')">
-            <span class="country-option-left">
-                ${FLAGS[item.flag] || ''}
-                <span>${escapeHtml(item.country)}</span>
-            </span>
-            <span class="country-lang-badge">${escapeHtml(item.langLabel)}</span>
-        </button>
-    `).join('');
+async function signOutUser() {
+    await supabase.auth.signOut();
+    currentUser = null;
+    currentProfile = null;
+    userVotes = {};
+    closeProfilePage();
+    renderAuthUI();
+    renderCatalog();
 }
+window.signOutUser = signOutUser;
 
-function filterCountryOptions(val) {
-    countryFilterQuery = val;
-    const activeCountry = draftCountry || (currentUser && currentUser.country) || "Morocco";
-    const listContainer = document.getElementById('countryOptionsList');
-    if (listContainer) {
-        listContainer.innerHTML = renderCountryOptions(activeCountry);
+async function toggleFavorite(brandId, event) {
+    if (event) event.stopPropagation();
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    if (!currentUser) {
+        showToast(t.loginRequired);
+        openModal("signin");
+        return;
+    }
+
+    const favs = Array.isArray(currentProfile?.favorites) ? [...currentProfile.favorites] : [];
+    const idx = favs.indexOf(brandId);
+    if (idx >= 0) {
+        favs.splice(idx, 1);
+    } else {
+        favs.push(brandId);
+    }
+
+    currentProfile = { ...(currentProfile || { id: currentUser.id }), favorites: favs };
+    await supabase.from("profiles").update({ favorites: favs }).eq("id", currentUser.id);
+
+    renderCatalog();
+    if (activeDetailBrandId === brandId) {
+        renderBrandDetail(brandId);
+    }
+    const profilePage = document.getElementById("profilePage");
+    if (profilePage && profilePage.classList.contains("active")) {
+        renderProfilePage();
     }
 }
-
-async function selectCountryOption(countryName) {
-    draftCountry = countryName;
-    const info = getCountryInfo(countryName);
-
-    const triggerLabel = document.getElementById('countryTriggerLabel');
-    if (triggerLabel) {
-        triggerLabel.innerHTML = `${FLAGS[info.flag] || ''} <span>${escapeHtml(info.country)}</span>`;
-    }
-
-    const previewEl = document.getElementById('countryPreview');
-    if (previewEl) {
-        previewEl.innerHTML = `${FLAGS[info.flag] || ''} <span>${escapeHtml(info.country)} — Language: ${escapeHtml(info.langLabel)}</span>`;
-    }
-
-    const listContainer = document.getElementById('countryOptionsList');
-    if (listContainer) {
-        listContainer.innerHTML = renderCountryOptions(countryName);
-    }
-
-    const menu = document.getElementById('countryMenu');
-    if (menu) menu.classList.remove('open');
-
-    await changeLanguage(info.lang);
-}
-
-document.addEventListener('click', () => {
-    const menu = document.getElementById('countryMenu');
-    if (menu) menu.classList.remove('open');
-});
+window.toggleFavorite = toggleFavorite;
 
 function openProfilePage() {
-    if (!currentUser) {
-        openModal();
-        return;
+    if (!currentUser) return;
+    const page = document.getElementById("profilePage");
+    if (!page) return;
+    renderProfilePage();
+    page.classList.add("active");
+}
+window.openProfilePage = openProfilePage;
+
+function closeProfilePage() {
+    const page = document.getElementById("profilePage");
+    if (page) page.classList.remove("active");
+    const menu = document.getElementById("countryMenu");
+    if (menu) menu.classList.remove("open");
+}
+window.closeProfilePage = closeProfilePage;
+
+function toggleCountryMenu(event) {
+    if (event) event.stopPropagation();
+    const menu = document.getElementById("countryMenu");
+    if (!menu) return;
+    const isOpen = menu.classList.toggle("open");
+    if (isOpen) {
+        const searchInput = document.getElementById("countrySearchInput");
+        if (searchInput) {
+            searchInput.value = "";
+            filterCountryOptions("");
+            setTimeout(() => searchInput.focus(), 20);
+        }
     }
-    countryFilterQuery = '';
-    const page = document.getElementById('profilePage');
-    const content = document.getElementById('profileContentContainer');
-    const avatarContent = currentUser.avatar ? `<img src="${escapeHtml(currentUser.avatar)}" alt="Avatar">` : defaultAvatarSvg;
-    const activeCountry = draftCountry || currentUser.country || "Morocco";
-    draftCountry = activeCountry;
-    const currentCountryInfo = getCountryInfo(activeCountry);
+}
+window.toggleCountryMenu = toggleCountryMenu;
 
-    const favs = currentUser.favorites || [];
-    let favsHtml = '';
+function filterCountryOptions(query) {
+    const q = (query || "").trim().toLowerCase();
+    document.querySelectorAll("#countryOptionsList .country-option").forEach(btn => {
+        const name = (btn.getAttribute("data-country-name") || "").toLowerCase();
+        const code = (btn.getAttribute("data-country-code") || "").toLowerCase();
+        btn.style.display = (!q || name.includes(q) || code.includes(q)) ? "flex" : "none";
+    });
+}
+window.filterCountryOptions = filterCountryOptions;
 
-    if (favs.length === 0) {
-        favsHtml = `<p style="font-size: 13px; color: #777; font-style: italic;">No favorite brands yet.</p>`;
-    } else {
-        favsHtml = `<div class="favorites-list">` + favs.map(favName => {
-            const b = brands.find(x => x.name === favName);
-            const safeJsName = escapeJsSingleQuote(favName);
-            return `
-                <div class="favorite-item">
-                    <div class="favorite-brand-info">
-                        <strong style="font-size: 15px;">${escapeHtml(favName)}</strong>
-                        <span style="font-size: 12px; color: #666;">${b ? escapeHtml(b.category) : ''}</span>
-                    </div>
-                    <div class="favorite-actions">
-                        <button class="back-btn" style="padding: 5px 11px; font-size: 12px;" onclick="closeProfilePage(); openBrandDetail('${safeJsName}');">View</button>
-                        <button class="logout-profile-btn" style="padding: 5px 11px; font-size: 12px;" onclick="removeFavorite('${safeJsName}')">Remove</button>
-                    </div>
+function selectCountryOption(code) {
+    const hiddenInput = document.getElementById("profileCountryInput");
+    const triggerCode = document.getElementById("selectedCountryFlag");
+    const triggerName = document.getElementById("selectedCountryName");
+    const previewFlag = document.getElementById("previewCountryFlag");
+    const previewName = document.getElementById("previewCountryName");
+    const previewLang = document.getElementById("previewCountryLang");
+
+    const countryObj = COUNTRY_LANGUAGES.find(c => c.code === code) || COUNTRY_LANGUAGES[0];
+    if (hiddenInput) hiddenInput.value = countryObj.code;
+    if (triggerCode) triggerCode.innerHTML = getFlagSvg(countryObj.code);
+    if (triggerName) triggerName.textContent = countryObj.name;
+    if (previewFlag) previewFlag.innerHTML = getFlagSvg(countryObj.code);
+    if (previewName) previewName.textContent = countryObj.name;
+    if (previewLang) previewLang.textContent = `Language: ${countryObj.lang.toUpperCase()}`;
+
+    document.querySelectorAll("#countryOptionsList .country-option").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-country-code") === countryObj.code);
+    });
+
+    const menu = document.getElementById("countryMenu");
+    if (menu) menu.classList.remove("open");
+}
+window.selectCountryOption = selectCountryOption;
+
+function renderProfilePage() {
+    const container = document.getElementById("profileContentContainer");
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    if (!container || !currentUser) return;
+
+    const userReviews = reviews.filter(r => r.user_id === currentUser.id);
+    const verifiedUserReviews = userReviews.filter(r => r.is_verified);
+    const favIds = Array.isArray(currentProfile?.favorites) ? currentProfile.favorites : [];
+    const favBrands = brands.filter(b => favIds.includes(b.id));
+    const currentCountryCode = currentProfile?.country || "ma";
+    const currentCountryObj = COUNTRY_LANGUAGES.find(c => c.code === currentCountryCode) || COUNTRY_LANGUAGES[0];
+
+    const avatarHtml = currentProfile?.avatar_url
+        ? `<img src="${currentProfile.avatar_url}" alt="Avatar">`
+        : `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>`;
+
+    const favHtml = favBrands.length
+        ? favBrands.map(b => `
+            <div class="favorite-item">
+                <div class="favorite-brand-info">
+                    <strong>${b.name}</strong>
+                    <span style="font-size:12px;color:#666;">${t.catNames[b.category] || b.category}</span>
                 </div>
-            `;
-        }).join('') + `</div>`;
-    }
+                <div class="favorite-actions">
+                    <button class="back-btn" onclick="closeProfilePage(); openBrandDetail(${b.id});">Open</button>
+                    <button class="vote-btn" onclick="toggleFavorite(${b.id}, event)">♥</button>
+                </div>
+            </div>
+        `).join("")
+        : `<p style="color:#666;font-size:13.5px;">${t.noFavorites}</p>`;
 
-    content.innerHTML = `
+    const countryOptionsHtml = COUNTRY_LANGUAGES.map(c => `
+        <button type="button" class="country-option ${c.code === currentCountryObj.code ? "active" : ""}"
+            data-country-code="${c.code}" data-country-name="${c.name}" onclick="selectCountryOption('${c.code}')">
+            <span class="country-option-left">
+                ${getFlagSvg(c.code)}
+                <span>${c.name}</span>
+            </span>
+            <span class="country-lang-badge">${c.lang.toUpperCase()}</span>
+        </button>
+    `).join("");
+
+    container.innerHTML = `
         <div class="profile-hero-card">
             <div class="profile-main-info">
-                <div class="profile-avatar-wrapper" title="Change picture" onclick="triggerAvatarUpload()">
-                    <div class="profile-big-avatar">
-                        ${avatarContent}
-                    </div>
+                <div class="profile-avatar-wrapper" onclick="document.getElementById('avatarUpload').click()">
+                    <div class="profile-big-avatar">${avatarHtml}</div>
                     <span class="avatar-edit-badge">Edit</span>
                 </div>
                 <div class="profile-details">
-                    <h2>${escapeHtml(currentUser.username)}</h2>
-                    <p>${escapeHtml(currentUser.email)}</p>
+                    <h2>${currentProfile?.username || "User"}</h2>
+                    <p>${currentUser.email || ""}</p>
                     <div class="profile-meta-chips">
-                        <span class="meta-chip verified-chip">✓ Email Verified</span>
-                        <span class="meta-chip">${FLAGS[currentCountryInfo.flag] || ''} ${escapeHtml(currentCountryInfo.country)}</span>
-                        <span class="meta-chip">Joined ${escapeHtml(currentUser.createdAt || 'N/A')}</span>
+                        <span class="meta-chip">${getFlagSvg(currentCountryObj.code)} ${currentCountryObj.name}</span>
+                        <span class="meta-chip verified-chip">✓ ${verifiedUserReviews.length} ${t.verifiedReviews}</span>
                     </div>
                 </div>
             </div>
@@ -501,807 +1169,584 @@ function openProfilePage() {
 
         <div class="stats-grid">
             <div class="stat-card">
-                <h5>Verified Reviews</h5>
-                <div class="number verified">${currentUser.verifiedRatingsCount || 0}</div>
-                <span class="stat-sub">Confirmed purchase feedback</span>
+                <h5>${t.totalReviews}</h5>
+                <div class="number">${userReviews.length}</div>
+                <span class="stat-sub">${t.favoriteBrands}: ${favBrands.length}</span>
             </div>
             <div class="stat-card">
-                <h5>Unverified Reviews</h5>
-                <div class="number">${currentUser.unverifiedRatingsCount || 0}</div>
-                <span class="stat-sub">General community feedback</span>
+                <h5>${t.verifiedReviews}</h5>
+                <div class="number verified">${verifiedUserReviews.length}</div>
+                <span class="stat-sub">${currentCountryObj.name}</span>
             </div>
         </div>
 
         <div class="favorites-section">
             <div class="section-card-header">
-                <h3>My Favorite Brands</h3>
-                <span class="meta-chip">${favs.length} saved</span>
+                <h3>${t.favoriteBrands}</h3>
+                <span class="result-count">${favBrands.length}</span>
             </div>
-            ${favsHtml}
+            <div class="favorites-list">${favHtml}</div>
         </div>
 
         <div class="settings-section">
             <div class="section-card-header">
-                <h3>Profile Settings</h3>
-                <span class="meta-chip">Account Preferences</span>
+                <h3>${t.accountSettings}</h3>
             </div>
             <div class="form-group">
-                <label>Edit Username</label>
-                <input type="text" id="editUsername" value="${escapeHtml(currentUser.username)}">
+                <label for="profileUsernameInput">${t.usernamePlaceholder}</label>
+                <input type="text" id="profileUsernameInput" value="${currentProfile?.username || ""}">
             </div>
             <div class="form-group">
-                <label>Country & Language</label>
-                <div class="country-picker" id="countryPicker" onclick="event.stopPropagation()">
+                <label>${t.countryLabel}</label>
+                <input type="hidden" id="profileCountryInput" value="${currentCountryObj.code}">
+                <div class="country-picker" id="countryPicker">
                     <button type="button" class="country-trigger" onclick="toggleCountryMenu(event)">
-                        <span class="country-trigger-left" id="countryTriggerLabel">
-                            ${FLAGS[currentCountryInfo.flag] || ''}
-                            <span>${escapeHtml(currentCountryInfo.country)}</span>
+                        <span class="country-trigger-left">
+                            <span id="selectedCountryFlag">${getFlagSvg(currentCountryObj.code)}</span>
+                            <span id="selectedCountryName">${currentCountryObj.name}</span>
                         </span>
-                        <span style="font-size: 10px; color: #666;">▼</span>
+                        <span>▾</span>
                     </button>
-                    <div class="country-menu" id="countryMenu">
-                        <input type="text" class="country-search-input" id="countrySearchInput" placeholder="Search country or language..." oninput="filterCountryOptions(this.value)">
-                        <div id="countryOptionsList">${renderCountryOptions(activeCountry)}</div>
+                    <div class="country-menu" id="countryMenu" onclick="event.stopPropagation()">
+                        <input type="text" id="countrySearchInput" class="country-search-input"
+                            placeholder="${t.countryPlaceholder}" oninput="filterCountryOptions(this.value)">
+                        <div id="countryOptionsList">${countryOptionsHtml}</div>
                     </div>
                 </div>
-                <div class="country-preview-row" id="countryPreview">
-                    ${FLAGS[currentCountryInfo.flag] || ''} <span>${escapeHtml(currentCountryInfo.country)} — Language: ${escapeHtml(currentCountryInfo.langLabel)}</span>
+                <div class="country-preview-row">
+                    <span id="previewCountryFlag">${getFlagSvg(currentCountryObj.code)}</span>
+                    <strong id="previewCountryName">${currentCountryObj.name}</strong>
+                    <span id="previewCountryLang">Language: ${currentCountryObj.lang.toUpperCase()}</span>
                 </div>
             </div>
             <div class="profile-actions-bar">
+                <button class="logout-profile-btn" onclick="signOutUser()">${t.signOut}</button>
                 <div class="profile-actions-right">
-                    <button type="button" class="logout-profile-btn" onclick="logout()">Sign Out</button>
-                    <button type="button" class="save-profile-btn" onclick="saveProfileChanges()">Save Changes</button>
+                    <button class="save-profile-btn" onclick="saveProfileChanges()">${t.saveChanges}</button>
                 </div>
             </div>
         </div>
     `;
-    page.classList.add('active');
-}
-
-function closeProfilePage() {
-    draftCountry = null;
-    document.getElementById('profilePage').classList.remove('active');
-}
-
-function triggerAvatarUpload() {
-    document.getElementById('avatarUpload').click();
-}
-
-async function handleAvatarChange(event) {
-    const file = event.target.files[0];
-    if (!file || !currentUser) return;
-    const reader = new FileReader();
-    reader.onload = async function(e) {
-        currentUser.avatar = e.target.result;
-        await supabase
-            .from('profiles')
-            .update({ avatar_url: currentUser.avatar })
-            .eq('id', currentUser.id);
-        updateAuthUI();
-        openProfilePage();
-        showToast("Avatar updated");
-    };
-    reader.readAsDataURL(file);
 }
 
 async function saveProfileChanges() {
     if (!currentUser) return;
-    const newName = document.getElementById('editUsername').value.trim();
-    const selectedCountry = draftCountry || currentUser.country || "Morocco";
-    const countryLang = getLangForCountry(selectedCountry);
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    const usernameInput = document.getElementById("profileUsernameInput");
+    const countryInput = document.getElementById("profileCountryInput");
 
-    if (newName) {
-        currentUser.username = newName;
-    }
-    currentUser.country = selectedCountry;
-    currentUser.preferredLang = countryLang;
+    const nextUsername = usernameInput?.value.trim() || currentProfile?.username || "User";
+    const nextCountry = countryInput?.value || currentProfile?.country || "ma";
 
-    const { error } = await supabase
-        .from('profiles')
-        .update({
-            username: currentUser.username,
-            country: currentUser.country,
-            preferred_lang: currentUser.preferredLang
-        })
-        .eq('id', currentUser.id);
+    const { data, error } = await supabase
+        .from("profiles")
+        .update({ username: nextUsername, country: nextCountry })
+        .eq("id", currentUser.id)
+        .select()
+        .single();
 
-    if (error) {
-        showToast("Error saving profile");
-        return;
-    }
-
-    updateAuthUI();
-    await changeLanguage(countryLang);
-    openProfilePage();
-    showToast("Profile saved");
-}
-
-async function toggleFavorite(brandName, event) {
-    if (event) event.stopPropagation();
-    if (!currentUser) {
-        openModal();
-        return;
-    }
-
-    if (!currentUser.favorites) currentUser.favorites = [];
-    const index = currentUser.favorites.indexOf(brandName);
-    const added = index === -1;
-    if (index > -1) {
-        currentUser.favorites.splice(index, 1);
-    } else {
-        currentUser.favorites.push(brandName);
-    }
-
-    await supabase
-        .from('profiles')
-        .update({ favorites: currentUser.favorites })
-        .eq('id', currentUser.id);
-
-    showToast(added ? `Added ${brandName} to favorites` : `Removed ${brandName} from favorites`);
-
-    if (currentSelectedBrandName === brandName) {
-        await openBrandDetail(brandName, false);
-    } else {
-        await render();
+    if (!error) {
+        currentProfile = data || { ...(currentProfile || {}), username: nextUsername, country: nextCountry };
+        const matchedCountry = COUNTRY_LANGUAGES.find(c => c.code === nextCountry);
+        if (matchedCountry && matchedCountry.lang !== currentLang && UI_TEXT[matchedCountry.lang]) {
+            currentLang = matchedCountry.lang;
+            localStorage.setItem("gfm_lang", currentLang);
+            const langSelect = document.getElementById("langSelect");
+            if (langSelect) langSelect.value = currentLang;
+            applyTranslations();
+        }
+        renderAuthUI();
+        renderProfilePage();
+        showToast(t.profileUpdated);
     }
 }
+window.saveProfileChanges = saveProfileChanges;
 
-async function removeFavorite(brandName) {
-    if (!currentUser || !currentUser.favorites) return;
-    const index = currentUser.favorites.indexOf(brandName);
-    if (index > -1) {
-        currentUser.favorites.splice(index, 1);
-        await supabase
-            .from('profiles')
-            .update({ favorites: currentUser.favorites })
-            .eq('id', currentUser.id);
-        openProfilePage();
-        showToast(`Removed ${brandName} from favorites`);
+async function handleAvatarChange(event) {
+    const file = event?.target?.files?.[0];
+    if (!file || !currentUser) return;
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+
+    const ext = file.name.split(".").pop() || "png";
+    const path = `${currentUser.id}/avatar.${ext}`;
+
+    const { error: uploadError } = await supabase.storage
+        .from("avatars")
+        .upload(path, file, { upsert: true });
+
+    if (!uploadError) {
+        const { data: urlData } = supabase.storage.from("avatars").getPublicUrl(path);
+        const publicUrl = `${urlData.publicUrl}?t=${Date.now()}`;
+        await supabase.from("profiles").update({ avatar_url: publicUrl }).eq("id", currentUser.id);
+        currentProfile = { ...(currentProfile || {}), avatar_url: publicUrl };
+        renderAuthUI();
+        renderProfilePage();
+        showToast(t.avatarUpdated);
     }
 }
+window.handleAvatarChange = handleAvatarChange;
 
-function setReviewFilter(mode) {
-    reviewFilterMode = mode;
-    if (currentSelectedBrandName) {
-        openBrandDetail(currentSelectedBrandName, false);
-    }
-}
-
-function setReviewSort(mode) {
-    reviewSortMode = mode;
-    if (currentSelectedBrandName) {
-        openBrandDetail(currentSelectedBrandName, false);
-    }
-}
-
-async function openBrandDetail(brandName, incrementVisit = true) {
-    currentSelectedBrandName = brandName;
-    const brand = brands.find(b => b.name === brandName);
+async function openBrandDetail(brandId) {
+    const brand = brands.find(b => b.id === brandId);
     if (!brand) return;
 
-    if (incrementVisit && brand.id) {
-        await supabase.rpc('increment_brand_visits', { p_brand_id: brand.id });
-        brand.visit_count = (brand.visit_count || 0) + 1;
+    activeDetailBrandId = brandId;
+    activeReviewFilter = "all";
+    activeReviewSort = "recent";
+
+    const nextVisits = (brand.visits || 0) + 1;
+    brand.visits = nextVisits;
+    renderCatalog();
+
+    await supabase.from("brands").update({ visits: nextVisits }).eq("id", brandId);
+
+    const page = document.getElementById("brandDetailPage");
+    if (page) {
+        renderBrandDetail(brandId);
+        page.classList.add("active");
     }
-
-    const detailPage = document.getElementById('brandDetailPage');
-    const container = document.getElementById('brandDetailContent');
-    const bannerElement = document.querySelector('.brand-banner');
-
-    bannerElement.classList.toggle('banner-framework', brand.name === 'Framework');
-
-    const resolvedBanner = resolveBannerUrl(brand.banner);
-    if (resolvedBanner) {
-        bannerElement.style.backgroundImage = `url('${resolvedBanner}')`;
-    } else {
-        bannerElement.style.backgroundImage = 'none';
-    }
-
-    await renderBrandDetailContent(brand, container);
-    detailPage.classList.add('active');
 }
+window.openBrandDetail = openBrandDetail;
 
-async function closeBrandDetail() {
-    document.getElementById('brandDetailPage').classList.remove('active');
-    currentSelectedBrandName = null;
-    reviewFilterMode = 'all';
-    reviewSortMode = 'newest';
-    await render();
+function closeBrandDetail() {
+    activeDetailBrandId = null;
+    const page = document.getElementById("brandDetailPage");
+    if (page) page.classList.remove("active");
 }
+window.closeBrandDetail = closeBrandDetail;
 
-async function renderBrandDetailContent(brand, container) {
-    const isFav = currentUser && currentUser.favorites && currentUser.favorites.includes(brand.name);
-    const translatedDesc = await autoTranslate(brand.description, currentLang);
-    const safeBrandJs = escapeJsSingleQuote(brand.name);
+function setReviewFilter(filter) {
+    activeReviewFilter = filter;
+    if (activeDetailBrandId !== null) renderBrandDetail(activeDetailBrandId);
+}
+window.setReviewFilter = setReviewFilter;
 
-    let filteredReviews = Array.isArray(brand.userReviews) ? [...brand.userReviews] : [];
-    if (reviewFilterMode === 'verified') {
-        filteredReviews = filteredReviews.filter(r => r.verified);
-    } else if (reviewFilterMode === 'unverified') {
-        filteredReviews = filteredReviews.filter(r => !r.verified);
+function setReviewSort(sortVal) {
+    activeReviewSort = sortVal;
+    if (activeDetailBrandId !== null) renderBrandDetail(activeDetailBrandId);
+}
+window.setReviewSort = setReviewSort;
+
+function renderBrandDetail(brandId) {
+    const brand = brands.find(b => b.id === brandId);
+    const contentEl = document.getElementById("brandDetailContent");
+    const bannerEl = document.querySelector("#brandDetailPage .brand-banner");
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    if (!brand || !contentEl) return;
+
+    if (bannerEl) {
+        bannerEl.style.backgroundImage = brand.banner ? `url("${brand.banner}")` : "none";
+        bannerEl.classList.toggle("banner-framework", brand.name === "Patagonia");
     }
 
-    if (reviewSortMode === 'helpful') {
-        filteredReviews.sort((a, b) => (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes));
-    } else if (reviewSortMode === 'rating-high') {
-        filteredReviews.sort((a, b) => b.rating - a.rating);
-    } else {
-        filteredReviews.sort((a, b) => b.id - a.id);
+    const stats = calculateBrandStats(brand.id);
+    const favIds = Array.isArray(currentProfile?.favorites) ? currentProfile.favorites : [];
+    const isFav = favIds.includes(brand.id);
+
+    let brandReviews = reviews.filter(r => r.brand_id === brand.id);
+    if (activeReviewFilter === "verified") {
+        brandReviews = brandReviews.filter(r => r.is_verified);
     }
 
-    let reviewsHtml = '';
-    if (filteredReviews.length === 0) {
-        reviewsHtml = `<p style="color: #666; font-size: 14px; font-style: italic;">No reviews yet. Be the first!</p>`;
-    } else {
-        reviewsHtml = filteredReviews.map(rev => {
-            const isUp = rev.userVote === 'up';
-            const isDown = rev.userVote === 'down';
+    brandReviews = [...brandReviews].sort((a, b) => {
+        if (activeReviewSort === "helpful") return (b.upvotes || 0) - (a.upvotes || 0);
+        if (activeReviewSort === "highest") return Number(b.rating) - Number(a.rating);
+        if (activeReviewSort === "lowest") return Number(a.rating) - Number(b.rating);
+        return new Date(b.created_at || 0) - new Date(a.created_at || 0);
+    });
+
+    const reviewsHtml = brandReviews.length
+        ? brandReviews.map(rev => {
+            const myVote = userVotes[rev.id] || null;
+            const dateStr = rev.created_at ? new Date(rev.created_at).toLocaleDateString() : "";
             return `
                 <div class="review-card">
                     <div class="review-header">
                         <div class="reviewer-info">
-                            <span>👤 ${escapeHtml(rev.username)}</span>
-                            ${rev.verified ? `<span class="verified-badge" style="font-size:11px;">✓ Verified</span>` : ''}
+                            <span>${rev.username || "User"}</span>
+                            <span style="font-size:12px;color:${rev.is_verified ? "#00a86b" : "#888"};">
+                                ${rev.is_verified ? t.verifiedBuyer : t.unverifiedReviewer}
+                            </span>
                         </div>
-                        <span class="review-date">${escapeHtml(rev.date)}</span>
+                        <span class="score">${Number(rev.rating).toFixed(1)}/10</span>
                     </div>
-                    <div class="review-text">${escapeHtml(rev.text)}</div>
+                    <p class="review-text">${rev.comment || ""}</p>
                     <div class="review-footer">
-                        <span style="font-weight:600; font-size: 12px;">Rating: ${Number(rev.rating).toFixed(1)}/10</span>
+                        <span class="review-date">${dateStr}</span>
                         <div class="vote-area">
-                            <button class="vote-btn ${isUp ? 'active-up' : ''}" onclick="handleVote('${safeBrandJs}', ${Number(rev.id)}, 'up')">👍 ${Number(rev.upvotes)}</button>
-                            <button class="vote-btn ${isDown ? 'active-down' : ''}" onclick="handleVote('${safeBrandJs}', ${Number(rev.id)}, 'down')">👎 ${Number(rev.downvotes)}</button>
+                            <button class="vote-btn ${myVote === "up" ? "active-up" : ""}" onclick="voteReview(${rev.id}, 'up')">
+                                ▲ <span>${rev.upvotes || 0}</span>
+                            </button>
+                            <button class="vote-btn ${myVote === "down" ? "active-down" : ""}" onclick="voteReview(${rev.id}, 'down')">
+                                ▼ <span>${rev.downvotes || 0}</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             `;
-        }).join('');
-    }
+        }).join("")
+        : `<div class="empty">${t.noBrands}</div>`;
 
-    container.innerHTML = `
+    contentEl.innerHTML = `
         <div class="brand-detail-top-bar">
-            <button class="back-btn" onclick="closeBrandDetail()">← Back to catalog</button>
+            <button class="back-btn" onclick="closeBrandDetail()">${t.backToCatalog}</button>
             <div class="action-buttons-group">
-                <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite('${safeBrandJs}')">
-                    ${isFav ? '♥ Favorite' : '♡ Add to favorite'}
+                <button class="favorite-btn ${isFav ? "active" : ""}" onclick="toggleFavorite(${brand.id}, event)">
+                    ${isFav ? t.inFav : t.addFav}
                 </button>
-                <a href="${escapeHtml(brand.website || '#')}" target="_blank" rel="noopener noreferrer" class="official-link-btn">Visit official website →</a>
+                <a class="official-link-btn" href="${brand.url}" target="_blank" rel="noopener noreferrer">${t.visitSite} ↗</a>
             </div>
         </div>
 
         <div class="brand-header-info">
-            <div class="brand-detail-logo">${escapeHtml(brand.mark)}</div>
+            <div class="brand-detail-logo">${brand.logo}</div>
             <div class="brand-detail-title-area">
-                <h2>${escapeHtml(brand.name)}</h2>
-                <span class="cat-tag"><strong>${escapeHtml(brand.category)}</strong> — ${escapeHtml(translatedDesc)}</span>
+                <h2>${brand.name}</h2>
+                <span class="cat-tag">${t.catNames[brand.category] || brand.category} · ${t.visits}: ${brand.visits || 0} · ${t.listed}: ${brand.listed_date || ""}</span>
             </div>
         </div>
+
+        <p class="description">${getBrandDescription(brand)}</p>
 
         <div class="brand-ratings-summary">
             <div class="summary-box">
-                <span>Global Rating</span>
-                <strong>${brand.rating.toFixed(1)}/10</strong>
+                <span>${t.globalRating}</span>
+                <strong>${formatScore(stats.globalAvg)} / 10</strong>
             </div>
             <div class="summary-box">
-                <span>✓ Verified</span>
-                <strong style="color: #00a86b;">${brand.verified.toFixed(1)}/10</strong>
+                <span>${t.verifiedScore}</span>
+                <strong style="color:#00a86b;">${formatScore(stats.verifiedAvg)} / 10</strong>
             </div>
             <div class="summary-box">
-                <span>Unverified</span>
-                <strong>${brand.unverified.toFixed(1)}/10</strong>
-            </div>
-        </div>
-
-        <div class="reviews-section">
-            <div class="reviews-toolbar">
-                <h3>Community Reviews (${brand.userReviews ? brand.userReviews.length : 0})</h3>
-                <div class="reviews-filters">
-                    <button type="button" class="filter-pill ${reviewFilterMode === 'all' ? 'active' : ''}" onclick="setReviewFilter('all')">All</button>
-                    <button type="button" class="filter-pill ${reviewFilterMode === 'verified' ? 'active' : ''}" onclick="setReviewFilter('verified')">✓ Verified</button>
-                    <button type="button" class="filter-pill ${reviewFilterMode === 'unverified' ? 'active' : ''}" onclick="setReviewFilter('unverified')">Unverified</button>
-                    <select class="reviews-sort-select" onchange="setReviewSort(this.value)">
-                        <option value="newest" ${reviewSortMode === 'newest' ? 'selected' : ''}>Newest</option>
-                        <option value="helpful" ${reviewSortMode === 'helpful' ? 'selected' : ''}>Most helpful</option>
-                        <option value="rating-high" ${reviewSortMode === 'rating-high' ? 'selected' : ''}>Highest rating</option>
-                    </select>
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                ${reviewsHtml}
+                <span>${t.unverifiedScore}</span>
+                <strong>${formatScore(stats.unverifiedAvg)} / 10</strong>
             </div>
         </div>
 
         <div class="add-review-box">
-            <h4>Leave a Review</h4>
-            <textarea id="newReviewText" placeholder="Write your feedback..."></textarea>
-            <div class="form-error" id="reviewError"></div>
+            <h4>${t.writeReview}</h4>
+            <textarea id="reviewCommentInput" placeholder="${t.reviewPlaceholder}"></textarea>
             <div class="review-form-controls">
                 <div class="form-row">
-                    <label>Rating (/10):</label>
-                    <input type="number" id="newReviewRating" min="0" max="10" step="0.5" value="8.0" style="width: 72px;">
-                    <label><input type="checkbox" id="newReviewVerified"> Verified purchase</label>
+                    <label for="reviewRatingInput">${t.ratingLabel}</label>
+                    <input type="number" id="reviewRatingInput" min="0" max="10" step="0.5" value="8" style="width:76px;">
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;">
+                        <input type="checkbox" id="reviewVerifiedInput">
+                        <span>${t.verifiedCheckbox}</span>
+                    </label>
                 </div>
-                <button class="submit-review-btn" onclick="submitBrandReview('${safeBrandJs}')">Submit Review</button>
+                <button class="submit-review-btn" onclick="submitReview(${brand.id})">${t.postReview}</button>
             </div>
+            <div class="form-error" id="reviewError"></div>
+        </div>
+
+        <div class="reviews-section">
+            <div class="reviews-toolbar">
+                <h3>${t.totalReviews} (${brandReviews.length})</h3>
+                <div class="reviews-filters">
+                    <button class="filter-pill ${activeReviewFilter === "all" ? "active" : ""}" onclick="setReviewFilter('all')">${t.allFilter}</button>
+                    <button class="filter-pill ${activeReviewFilter === "verified" ? "active" : ""}" onclick="setReviewFilter('verified')">${t.verifiedFilter}</button>
+                    <select class="reviews-sort-select" onchange="setReviewSort(this.value)">
+                        <option value="recent" ${activeReviewSort === "recent" ? "selected" : ""}>${t.sortRecent}</option>
+                        <option value="helpful" ${activeReviewSort === "helpful" ? "selected" : ""}>${t.sortHelpful}</option>
+                        <option value="highest" ${activeReviewSort === "highest" ? "selected" : ""}>${t.sortHighest}</option>
+                        <option value="lowest" ${activeReviewSort === "lowest" ? "selected" : ""}>${t.sortLowest}</option>
+                    </select>
+                </div>
+            </div>
+            ${reviewsHtml}
         </div>
     `;
 }
 
-async function submitBrandReview(brandName) {
+async function submitReview(brandId) {
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    const errEl = document.getElementById("reviewError");
+    if (errEl) errEl.textContent = "";
+
     if (!currentUser) {
-        openModal();
+        showToast(t.loginRequired);
+        openModal("signin");
         return;
     }
 
-    const errEl = document.getElementById('reviewError');
-    const text = document.getElementById('newReviewText').value.trim();
-    let rating = parseFloat(document.getElementById('newReviewRating').value);
-    const isVerified = document.getElementById('newReviewVerified').checked;
+    const commentInput = document.getElementById("reviewCommentInput");
+    const ratingInput = document.getElementById("reviewRatingInput");
+    const verifiedInput = document.getElementById("reviewVerifiedInput");
 
-    if (!text) {
-        if (errEl) errEl.textContent = "Please write a short review before submitting.";
+    const comment = commentInput?.value.trim() || "";
+    const rating = parseFloat(ratingInput?.value || "0");
+    const isVerified = Boolean(verifiedInput?.checked);
+
+    if (!comment) {
+        if (errEl) errEl.textContent = "Please write a review comment.";
         return;
     }
-    if (isNaN(rating)) rating = 8.0;
-    rating = Math.max(0, Math.min(10, rating));
-    if (errEl) errEl.textContent = "";
+    if (isNaN(rating) || rating < 0 || rating > 10) {
+        if (errEl) errEl.textContent = "Rating must be between 0 and 10.";
+        return;
+    }
 
-    const brand = brands.find(b => b.name === brandName);
-    if (!brand || !brand.id) return;
-
-    const { error: insErr } = await supabase
-        .from('reviews')
+    const username = currentProfile?.username || currentUser.email?.split("@")[0] || "User";
+    const { data, error } = await supabase
+        .from("reviews")
         .insert({
-            brand_id: brand.id,
+            brand_id: brandId,
             user_id: currentUser.id,
-            username: currentUser.username,
-            text: text,
-            rating: rating,
-            verified: isVerified
-        });
-
-    if (insErr) {
-        if (errEl) errEl.textContent = insErr.message;
-        return;
-    }
-
-    if (isVerified) {
-        currentUser.verifiedRatingsCount = (currentUser.verifiedRatingsCount || 0) + 1;
-    } else {
-        currentUser.unverifiedRatingsCount = (currentUser.unverifiedRatingsCount || 0) + 1;
-    }
-
-    await supabase
-        .from('profiles')
-        .update({
-            verified_ratings_count: currentUser.verifiedRatingsCount,
-            unverified_ratings_count: currentUser.unverifiedRatingsCount
+            username,
+            rating,
+            comment,
+            is_verified: isVerified,
+            upvotes: 0,
+            downvotes: 0
         })
-        .eq('id', currentUser.id);
+        .select()
+        .single();
 
-    await loadBrandsFromSupabase();
-    await openBrandDetail(brand.name, false);
-    showToast("Review published");
-}
-
-async function handleVote(brandName, reviewId, type) {
-    const brand = brands.find(b => b.name === brandName);
-    if (!brand) return;
-    const review = brand.userReviews.find(r => r.id === reviewId);
-    if (!review) return;
-
-    if (type === 'up') {
-        if (review.userVote === 'up') {
-            review.upvotes--;
-            review.userVote = null;
-        } else {
-            if (review.userVote === 'down') review.downvotes--;
-            review.upvotes++;
-            review.userVote = 'up';
-        }
-    } else if (type === 'down') {
-        if (review.userVote === 'down') {
-            review.downvotes--;
-            review.userVote = null;
-        } else {
-            if (review.userVote === 'up') review.upvotes--;
-            review.downvotes++;
-            review.userVote = 'down';
-        }
+    if (error) {
+        if (errEl) errEl.textContent = error.message;
+        return;
     }
 
-    await supabase
-        .from('reviews')
-        .update({ upvotes: review.upvotes, downvotes: review.downvotes })
-        .eq('id', reviewId);
-
-    await openBrandDetail(brand.name, false);
-}
-
-function syncAuthFeedbackBox() {
-    const box = document.getElementById('authFeedbackBox');
-    const errEl = document.getElementById('authError');
-    const infoEl = document.getElementById('authInfo');
-    const resendBtn = document.getElementById('resendVerificationBtn');
-    const hasErr = !!(errEl && errEl.textContent.trim());
-    const hasInfo = !!(infoEl && infoEl.textContent.trim());
-    const hasResend = !!(resendBtn && resendBtn.classList.contains('visible'));
-    if (box) {
-        box.classList.toggle('has-content', hasErr || hasInfo || hasResend);
+    if (data) {
+        reviews.unshift(data);
     }
+    renderCatalog();
+    renderBrandDetail(brandId);
+    showToast(t.reviewPosted);
 }
+window.submitReview = submitReview;
 
-function resetAuthFeedback() {
-    const errEl = document.getElementById('authError');
-    const infoEl = document.getElementById('authInfo');
-    const resendBtn = document.getElementById('resendVerificationBtn');
-    const passInput = document.getElementById('passwordInput');
-    const eyeIcon = document.getElementById('eyeIcon');
-    if (errEl) errEl.textContent = "";
-    if (infoEl) infoEl.textContent = "";
-    if (resendBtn) resendBtn.classList.remove('visible');
-    if (passInput) passInput.type = "password";
-    if (eyeIcon) eyeIcon.innerHTML = eyeOpenSvg;
-    syncAuthFeedbackBox();
-}
+async function voteReview(reviewId, voteType) {
+    const t = UI_TEXT[currentLang] || UI_TEXT.en;
+    if (!currentUser) {
+        showToast(t.loginRequired);
+        openModal("signin");
+        return;
+    }
 
-function applyModalModeText() {
-    const titleEl = document.getElementById('modalTitle');
-    const subEl = document.getElementById('modalSubtitle');
-    const userWrap = document.getElementById('usernameWrap');
-    const submitEl = document.getElementById('modalSubmit');
-    const toggleEl = document.getElementById('modalToggle');
+    const rev = reviews.find(r => r.id === reviewId);
+    if (!rev) return;
 
-    if (isSignUp) {
-        titleEl.textContent = "Create an Account";
-        subEl.textContent = "Join Go Find Me to save favorite brands and leave reviews.";
-        userWrap.style.display = "flex";
-        submitEl.textContent = isSubmittingAuth ? "Please wait..." : "Sign Up";
-        toggleEl.innerHTML = "Already have an account? <strong>Sign In</strong>";
+    const prevVote = userVotes[reviewId] || null;
+    let up = rev.upvotes || 0;
+    let down = rev.downvotes || 0;
+
+    if (prevVote === "up") up = Math.max(0, up - 1);
+    if (prevVote === "down") down = Math.max(0, down - 1);
+
+    if (prevVote === voteType) {
+        delete userVotes[reviewId];
+        await supabase.from("review_votes").delete().eq("review_id", reviewId).eq("user_id", currentUser.id);
     } else {
-        titleEl.textContent = "Welcome Back";
-        subEl.textContent = "Sign in with your verified email address to access your profile.";
-        userWrap.style.display = "none";
-        submitEl.textContent = isSubmittingAuth ? "Please wait..." : "Sign In";
-        toggleEl.innerHTML = "Need an account? <strong>Sign Up</strong>";
-    }
-    if (submitEl) submitEl.disabled = isSubmittingAuth;
-}
-
-function openModal() {
-    resetAuthFeedback();
-    applyModalModeText();
-    document.getElementById('modalOverlay').classList.add('open');
-}
-function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-}
-
-function toggleAuthMode() {
-    if (isSubmittingAuth) return;
-    isSignUp = !isSignUp;
-    resetAuthFeedback();
-    applyModalModeText();
-}
-
-async function resendVerificationEmail() {
-    if (isResendingEmail) return;
-    const errEl = document.getElementById('authError');
-    const infoEl = document.getElementById('authInfo');
-    const resendBtn = document.getElementById('resendVerificationBtn');
-    const email = (document.getElementById('emailInput').value.trim() || lastPendingEmail);
-
-    if (!email) {
-        if (errEl) errEl.textContent = "Please enter your email address first.";
-        syncAuthFeedbackBox();
-        return;
-    }
-
-    isResendingEmail = true;
-    if (resendBtn) resendBtn.disabled = true;
-
-    try {
-        const { error } = await supabase.auth.resend({
-            type: 'signup',
-            email,
-            options: {
-                emailRedirectTo: getRedirectUrl()
-            }
+        userVotes[reviewId] = voteType;
+        if (voteType === "up") up += 1;
+        if (voteType === "down") down += 1;
+        await supabase.from("review_votes").upsert({
+            review_id: reviewId,
+            user_id: currentUser.id,
+            vote_type: voteType
         });
-
-        if (error) {
-            if (errEl) errEl.textContent = error.message;
-            if (infoEl) infoEl.textContent = "";
-            syncAuthFeedbackBox();
-            return;
-        }
-
-        if (errEl) errEl.textContent = "";
-        if (infoEl) infoEl.textContent = `Verification email sent to ${email}. Check your inbox and spam folder.`;
-        syncAuthFeedbackBox();
-        showToast("Verification email sent");
-    } finally {
-        isResendingEmail = false;
-        if (resendBtn) resendBtn.disabled = false;
-    }
-}
-
-async function handleAuth() {
-    if (isSubmittingAuth) return;
-    const errEl = document.getElementById('authError');
-    const infoEl = document.getElementById('authInfo');
-    const resendBtn = document.getElementById('resendVerificationBtn');
-    const email = document.getElementById('emailInput').value.trim();
-    const password = document.getElementById('passwordInput').value;
-    const username = document.getElementById('usernameInput').value.trim() || email.split('@')[0];
-
-    resetAuthFeedback();
-
-    if (!email || !password) {
-        if (errEl) errEl.textContent = "Please enter both email and password.";
-        syncAuthFeedbackBox();
-        return;
     }
 
-    lastPendingEmail = email;
-    isSubmittingAuth = true;
-    applyModalModeText();
+    rev.upvotes = up;
+    rev.downvotes = down;
+    await supabase.from("reviews").update({ upvotes: up, downvotes: down }).eq("id", reviewId);
 
-    try {
-        if (isSignUp) {
-            const { data, error } = await supabase.auth.signUp({
-                email,
-                password,
-                options: {
-                    data: { username },
-                    emailRedirectTo: getRedirectUrl()
-                }
-            });
-            if (error) {
-                if (errEl) errEl.textContent = error.message;
-                syncAuthFeedbackBox();
-                return;
-            }
-            if (data.user && !data.user.email_confirmed_at) {
-                await supabase.auth.signOut();
-                if (infoEl) infoEl.textContent = "Account created! Check your email and click the verification link before signing in.";
-                if (resendBtn) resendBtn.classList.add('visible');
-                syncAuthFeedbackBox();
-                showToast("Verify your email before signing in");
-                return;
-            }
-            if (data.user) {
-                await supabase.from('profiles').upsert({
-                    id: data.user.id,
-                    username,
-                    country: 'Morocco',
-                    preferred_lang: currentLang,
-                    favorites: []
-                });
-                await loadUserProfile(data.user);
-                closeModal();
-                openProfilePage();
-                showToast(`Welcome, ${currentUser.username}`);
-            }
-        } else {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password
-            });
-            if (error) {
-                if (error.message.toLowerCase().includes('email not confirmed')) {
-                    if (errEl) errEl.textContent = "You must verify your email address before signing in.";
-                    if (resendBtn) resendBtn.classList.add('visible');
-                } else {
-                    if (errEl) errEl.textContent = error.message;
-                }
-                syncAuthFeedbackBox();
-                return;
-            }
-            if (data.user && !data.user.email_confirmed_at) {
-                await supabase.auth.signOut();
-                if (errEl) errEl.textContent = "Please verify your email address before signing in.";
-                if (resendBtn) resendBtn.classList.add('visible');
-                syncAuthFeedbackBox();
-                return;
-            }
-            await loadUserProfile(data.user);
-            closeModal();
-            openProfilePage();
-            showToast(`Welcome back, ${currentUser.username}`);
-        }
-    } finally {
-        isSubmittingAuth = false;
-        applyModalModeText();
+    if (activeDetailBrandId !== null) {
+        renderBrandDetail(activeDetailBrandId);
     }
 }
-
-async function logout() {
-    await supabase.auth.signOut();
-    currentUser = null;
-    draftCountry = null;
-    closeProfilePage();
-    updateAuthUI();
-    await render();
-    showToast("Signed out");
-}
-
-const grid = document.getElementById("grid");
-const searchInput = document.getElementById("search");
-const sortSelect = document.getElementById("sort");
-const sectionTitle = document.getElementById("section-title");
-const resultCount = document.getElementById("result-count");
-const categoryItems = document.querySelectorAll(".category-item");
-
-let activeCategory = "All";
-
-const sorters = {
-    "verified-desc": (a, b) => b.verified - a.verified || b.reviews - a.reviews,
-    "verified-asc": (a, b) => a.verified - b.verified || a.reviews - b.reviews,
-    "trending": (a, b) => b.visit_count - a.visit_count,
-    "niche": (a, b) => a.visit_count - b.visit_count,
-    "new": (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at),
-    "unverified-desc": (a, b) => b.unverified - a.unverified || b.reviews - a.reviews,
-    "unverified-asc": (a, b) => a.unverified - b.unverified || a.reviews - b.reviews,
-    "rating-desc": (a, b) => b.rating - a.rating || b.reviews - a.reviews,
-    "rating-asc": (a, b) => a.rating - b.rating || a.reviews - b.reviews
-};
-
-function isListedWithinLastYear(iso) {
-    if (!iso) return false;
-    const created = new Date(iso + "T00:00:00");
-    const cutoff = new Date();
-    cutoff.setHours(0, 0, 0, 0);
-    cutoff.setFullYear(cutoff.getFullYear() - 1);
-    return created >= cutoff;
-}
+window.voteReview = voteReview;
 
 function updateCategoryCounts() {
-    const allEl = document.getElementById("count-All");
-    if (allEl) allEl.textContent = brands.length;
-    ["Sports", "Fashion", "Games", "Everyday Life", "Books", "Technology"].forEach(cat => {
+    const counts = {
+        "All": brands.length,
+        "Sports": 0,
+        "Fashion": 0,
+        "Games": 0,
+        "Everyday Life": 0,
+        "Books": 0,
+        "Technology": 0
+    };
+
+    brands.forEach(b => {
+        if (counts[b.category] !== undefined) {
+            counts[b.category] += 1;
+        }
+    });
+
+    Object.entries(counts).forEach(([cat, count]) => {
         const el = document.getElementById(`count-${cat}`);
-        if (el) el.textContent = brands.filter(b => b.category === cat).length;
+        if (el) el.textContent = String(count);
     });
 }
 
-async function render() {
-    updateCategoryCounts();
+function renderCatalog() {
+    const grid = document.getElementById("grid");
+    const countEl = document.getElementById("result-count");
     const t = UI_TEXT[currentLang] || UI_TEXT.en;
-    const query = searchInput.value.trim().toLowerCase();
-    const sortKey = sortSelect.value;
+    if (!grid) return;
 
-    let list = brands.filter(b => {
-        const inCat = activeCategory === "All" || b.category === activeCategory;
-        const matches = (b.name + " " + b.category + " " + b.description).toLowerCase().includes(query);
-        const recent = sortKey !== "new" || isListedWithinLastYear(b.created_at);
-        return inCat && matches && recent;
+    updateCategoryCounts();
+
+    let filtered = brands.filter(b => {
+        const matchesCat = activeCategory === "All" || b.category === activeCategory;
+        const q = searchQuery.trim().toLowerCase();
+        const desc = getBrandDescription(b).toLowerCase();
+        const matchesSearch = !q ||
+            b.name.toLowerCase().includes(q) ||
+            (b.category || "").toLowerCase().includes(q) ||
+            desc.includes(q);
+        const matchesNew = currentSort !== "new" || isNewBrand(b.listed_date);
+        return matchesCat && matchesSearch && matchesNew;
     });
 
-    list.sort((a, b) => (sorters[sortKey] || sorters["verified-desc"])(a, b));
+    const statsMap = new Map();
+    filtered.forEach(b => statsMap.set(b.id, calculateBrandStats(b.id)));
 
-    sectionTitle.textContent = activeCategory;
-    resultCount.textContent = list.length === 1 ? t.brandOne : `${list.length} ${t.brandMany}`;
+    filtered.sort((a, b) => {
+        const sa = statsMap.get(a.id);
+        const sb = statsMap.get(b.id);
+        switch (currentSort) {
+            case "verified-desc":
+                return (sb.verifiedAvg ?? -1) - (sa.verifiedAvg ?? -1);
+            case "verified-asc":
+                return (sa.verifiedAvg ?? 999) - (sb.verifiedAvg ?? 999);
+            case "unverified-desc":
+                return (sb.unverifiedAvg ?? -1) - (sa.unverifiedAvg ?? -1);
+            case "unverified-asc":
+                return (sa.unverifiedAvg ?? 999) - (sb.unverifiedAvg ?? 999);
+            case "rating-desc":
+                return (sb.globalAvg ?? -1) - (sa.globalAvg ?? -1);
+            case "rating-asc":
+                return (sa.globalAvg ?? 999) - (sb.globalAvg ?? 999);
+            case "trending":
+                return (b.visits || 0) - (a.visits || 0);
+            case "niche":
+                return (a.visits || 0) - (b.visits || 0);
+            default:
+                return (sb.verifiedAvg ?? sb.globalAvg ?? -1) - (sa.verifiedAvg ?? sa.globalAvg ?? -1);
+        }
+    });
 
-    if (list.length === 0) {
-        grid.innerHTML = '<div class="empty"><strong>No brands found</strong><br>Try another search or category.</div>';
+    if (countEl) {
+        countEl.textContent = `${filtered.length} ${filtered.length === 1 ? "brand" : "brands"}`;
+    }
+
+    if (!filtered.length) {
+        grid.innerHTML = `<div class="empty">${t.noBrands}</div>`;
         return;
     }
 
-    let cardsHTML = '';
-    for (let b of list) {
-        const translatedDesc = await autoTranslate(b.description, currentLang);
-        const zoomClass = b.name === "Framework" ? " zoom-framework" : "";
-        const resolvedBanner = resolveBannerUrl(b.banner);
-        const bannerHTML = resolvedBanner
-            ? `<div class="card-banner-box"><img src="${resolvedBanner}" class="card-banner${zoomClass}" alt="${escapeHtml(b.name)} banner"></div>`
-            : '';
-        const isFav = !!(currentUser && currentUser.favorites && currentUser.favorites.includes(b.name));
-        const safeBrandJs = escapeJsSingleQuote(b.name);
+    const favIds = Array.isArray(currentProfile?.favorites) ? currentProfile.favorites : [];
 
-        cardsHTML += `
-            <article class="card" onclick="openBrandDetail('${safeBrandJs}')">
+    grid.innerHTML = filtered.map(brand => {
+        const stats = statsMap.get(brand.id);
+        const isFav = favIds.includes(brand.id);
+        const zoomClass = brand.name === "Patagonia" ? "zoom-framework" : "";
+
+        return `
+            <article class="card" onclick="openBrandDetail(${brand.id})">
                 <div>
                     <div class="card-header">
                         <div class="brand-identity">
-                            <div class="logo">${escapeHtml(b.mark)}</div>
+                            <div class="logo">${brand.logo}</div>
                             <div>
-                                <div class="brand-name">${escapeHtml(b.name)}</div>
-                                <div class="brand-category">${escapeHtml(b.category)}</div>
+                                <div class="brand-name">${brand.name}</div>
+                                <div class="brand-category">${t.catNames[brand.category] || brand.category}</div>
                             </div>
                         </div>
                         <div class="card-header-right">
-                            <button type="button" class="quick-fav-btn ${isFav ? 'active' : ''}" title="${isFav ? 'Remove favorite' : 'Add favorite'}" onclick="toggleFavorite('${safeBrandJs}', event)">${isFav ? '♥' : '♡'}</button>
-                            <span class="score">${b.rating.toFixed(1)}/10</span>
+                            <button type="button" class="quick-fav-btn ${isFav ? "active" : ""}"
+                                onclick="toggleFavorite(${brand.id}, event)" aria-label="Favorite">♥</button>
+                            <span class="score">${getCardScoreBadge(stats)}</span>
                         </div>
                     </div>
 
-                    ${bannerHTML}
+                    ${brand.banner ? `
+                        <div class="card-banner-box">
+                            <img class="card-banner ${zoomClass}" src="${brand.banner}" alt="${brand.name}" loading="lazy">
+                        </div>
+                    ` : ""}
 
                     <div class="description-container">
-                        <p class="description">${escapeHtml(translatedDesc)}</p>
+                        <p class="description">${getBrandDescription(brand)}</p>
+                        <div class="metrics">
+                            <span>${t.visits}: ${brand.visits || 0}</span>
+                            <span>${t.listed}: ${brand.listed_date || ""}</span>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <div class="metrics">
-                        <span>Visits: ${b.visit_count.toLocaleString()}</span>
-                        <span>Listed: ${escapeHtml(b.created_at.slice(0, 7))}</span>
-                    </div>
-                    <div class="ratings">
-                        <div><span class="verified-badge">✓ Verified:</span> ${b.verified.toFixed(1)}</div>
-                        <div><span>Unverified:</span> ${b.unverified.toFixed(1)}</div>
-                        <div class="reviews">${b.reviews.toLocaleString()} reviews</div>
-                    </div>
+
+                <div class="ratings">
+                    <span class="verified-badge">✓ ${t.verifiedScore}: ${formatScore(stats.verifiedAvg)}</span>
+                    <span>${t.unverifiedScore}: ${formatScore(stats.unverifiedAvg)}</span>
+                    <span class="reviews">${stats.totalCount} ${stats.totalCount === 1 ? "review" : "reviews"}</span>
                 </div>
             </article>
         `;
-    }
-    grid.innerHTML = cardsHTML;
+    }).join("");
 }
 
-window.toggleMobileSidebar = toggleMobileSidebar;
-window.changeLanguage = changeLanguage;
-window.openModal = openModal;
-window.closeModal = closeModal;
-window.toggleAuthMode = toggleAuthMode;
-window.togglePasswordVisibility = togglePasswordVisibility;
-window.handleAuth = handleAuth;
-window.resendVerificationEmail = resendVerificationEmail;
-window.logout = logout;
-window.openProfilePage = openProfilePage;
-window.closeProfilePage = closeProfilePage;
-window.triggerAvatarUpload = triggerAvatarUpload;
-window.handleAvatarChange = handleAvatarChange;
-window.saveProfileChanges = saveProfileChanges;
-window.toggleCountryMenu = toggleCountryMenu;
-window.filterCountryOptions = filterCountryOptions;
-window.selectCountryOption = selectCountryOption;
-window.toggleFavorite = toggleFavorite;
-window.removeFavorite = removeFavorite;
-window.setReviewFilter = setReviewFilter;
-window.setReviewSort = setReviewSort;
-window.openBrandDetail = openBrandDetail;
-window.closeBrandDetail = closeBrandDetail;
-window.submitBrandReview = submitBrandReview;
-window.handleVote = handleVote;
+async function fetchInitialData() {
+    const [{ data: brandsData }, { data: reviewsData }] = await Promise.all([
+        supabase.from("brands").select("*").order("id", { ascending: true }),
+        supabase.from("reviews").select("*").order("created_at", { ascending: false })
+    ]);
 
-searchInput.addEventListener("input", render);
-sortSelect.addEventListener("change", render);
+    brands = Array.isArray(brandsData) && brandsData.length ? brandsData : DEFAULT_BRANDS;
+    reviews = Array.isArray(reviewsData) ? reviewsData : [];
+    renderCatalog();
+}
 
-categoryItems.forEach(item => {
-    item.addEventListener("click", () => {
-        const next = item.dataset.category;
-        activeCategory = (next === "All" || next === activeCategory) ? "All" : next;
-        categoryItems.forEach(el => el.classList.toggle("active", el.dataset.category === activeCategory));
-        toggleMobileSidebar(false);
-        render();
+document.addEventListener("DOMContentLoaded", async () => {
+    const savedLang = localStorage.getItem("gfm_lang");
+    if (savedLang && UI_TEXT[savedLang]) {
+        currentLang = savedLang;
+    }
+    const langSelect = document.getElementById("langSelect");
+    if (langSelect) langSelect.value = currentLang;
+
+    document.querySelectorAll(".category-item").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".category-item").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeCategory = btn.getAttribute("data-category") || "All";
+            applyTranslations();
+            toggleMobileSidebar(false);
+        });
     });
-});
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closeModal();
-        const countryMenu = document.getElementById('countryMenu');
-        if (countryMenu) countryMenu.classList.remove('open');
-        toggleMobileSidebar(false);
+    const sortSelect = document.getElementById("sort");
+    if (sortSelect) {
+        sortSelect.addEventListener("change", () => {
+            currentSort = sortSelect.value;
+            renderCatalog();
+        });
     }
-});
 
-applyUIText(currentLang);
-await loadBrandsFromSupabase();
-
-const { data: { session } } = await supabase.auth.getSession();
-if (session?.user) {
-    await loadUserProfile(session.user);
-}
-
-supabase.auth.onAuthStateChange(async (_event, nextSession) => {
-    if (nextSession?.user && nextSession.user.email_confirmed_at) {
-        await loadUserProfile(nextSession.user);
-    } else {
-        currentUser = null;
-        updateAuthUI();
-        await render();
+    const searchInput = document.getElementById("search");
+    if (searchInput) {
+        searchInput.addEventListener("input", () => {
+            searchQuery = searchInput.value;
+            renderCatalog();
+        });
     }
+
+    document.addEventListener("click", () => {
+        const menu = document.getElementById("countryMenu");
+        if (menu) menu.classList.remove("open");
+    });
+
+    applyTranslations();
+    await fetchInitialData();
+
+    const { data: { session } } = await supabase.auth.getSession();
+    await loadUserSessionData(session?.user || null);
+
+    supabase.auth.onAuthStateChange(async (_event, sessionData) => {
+        await loadUserSessionData(sessionData?.user || null);
+        renderCatalog();
+    });
 });
